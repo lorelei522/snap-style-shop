@@ -1,0 +1,15 @@
+<div class="product">
+  <% if @products.length > 0 %>
+    <section id="search-results">
+      <% @products.each do |p| %>
+        <ul>
+          <li>
+            <div class="product-image"><a href="<%=p[:link]%>"><img src="<%=p[:image]%>" alt="Clothing Item"/></a></div>
+            <div class="product-title"><%= p[:name] %></div>
+            <div class="product-price"><%= p[:priceLabel] %></div>
+          </li>
+        </ul>
+      <% end %>
+    </section>
+  <% end %>
+</div>
