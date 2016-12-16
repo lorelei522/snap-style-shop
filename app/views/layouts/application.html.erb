@@ -6,11 +6,27 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
   </head>
   <body  class="grey">
       <nav>
         <div class="nav-wrapper grey darken-4">
-          <p><%= link_to "Snap Style Shop",root_url, class: "brand-logo white-text " %></p>
+          <ul id="nav-mobile" class="hide-on-med-and-down ">
+          <% if logged_in? %>
+            <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "HomePage", root_url  %></li>
+            <li><%= link_to "Create an Account", new_user_path  %></li>
+            <li><%= link_to "Log In", new_session_path  %></li>
+          <% end %>
+        </ul>
           <% if flash[:error] %>
           <% flash[:error].each do |error| %>
           <ul>
@@ -18,20 +34,21 @@
           </ul>
           <% end %>
           <% end %>
-          <div class="row">
-            <form id="search" class="col s offset-s36 white" action="/products" method="get">
-              <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
-              <div class="row">
-                <div class="input-field col s12">
-                  <i class="material-icons prefix">search</i>
-                  <input id="icon_prefix" type="text" class="validate"  name='query' placeholder='product'>
-                </div>
-              </div>
-            </form>
-          </div>
+
         </div>
       </nav>
       <div class="container white layout_container z-depth-5">
+        <div class="row">
+          <form id="search" class="col s offset-s36" action="/products" method="get">
+            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" type="text" class="validate"  name='query' placeholder='product'>
+              </div>
+            </div>
+          </form>
+        </div>
           <%= yield %>
       </div>
     </body>
