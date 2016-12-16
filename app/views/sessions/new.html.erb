@@ -1,0 +1,16 @@
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(:action =>'create') do  %>
+      <p>Email </br>
+      <%= text_field_tag :email %></p>
+        <p>Password </br>
+      <%= password_field_tag :password %></p>
+
+      <%= submit_tag "Log in" %>
+    <% end %>
+
+
+  </div>
+</div>

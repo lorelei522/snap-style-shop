@@ -13,6 +13,8 @@ require "sprockets/railtie"
 require 'open-uri'
 require 'json'
 require 'net/http'
+require 'pry'
+
 
 # require "rails/test_unit/railtie"
 

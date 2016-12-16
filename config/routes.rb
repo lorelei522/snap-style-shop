@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  resources :products
   root :to => 'welcome#index'
+  resources :products
+  resources :users
 
+  get 'sessions/new' => 'sessions#new'
+  post 'sessions/login_attempt' => 'sessions#login_attempt'
+  delete 'sessions' => 'sessions#destroy'
+
+  resources :sessions, except: :destroy
 
   get '/results' => 'products#index'
 
