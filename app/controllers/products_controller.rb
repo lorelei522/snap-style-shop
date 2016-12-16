@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
         price: product['priceLabel'],
       }
     end
-    @products
+    pp @products
     #shopstyle_products = Product.create() USE THIS IF WE WANT TO SAVE EACH RETURN INTO THE database
   end
 

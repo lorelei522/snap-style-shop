@@ -5,8 +5,12 @@
         <ul>
           <li>
             <div class="product-image"><a href="<%=p[:link]%>"><img src="<%=p[:image]%>" alt="Clothing Item"/></a></div>
-            <div class="product-title"><%= p[:name] %></div>
-            <div class="product-price"><%= p[:priceLabel] %></div>
+          </li>
+          <li>
+          <div> <%= p[:name] %> </div
+          </li>
+          <li>
+            <div class="product-price"><%= p[:price] %></div>
           </li>
         </ul>
       <% end %>
