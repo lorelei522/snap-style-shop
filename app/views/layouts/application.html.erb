@@ -7,8 +7,32 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
-  <body>
-    <%= yield %>
-  </body>
+  <body  class="grey">
+      <nav>
+        <div class="nav-wrapper grey darken-4">
+          <p><%= link_to "Snap Style Shop",root_url, class: "brand-logo white-text " %></p>
+          <% if flash[:error] %>
+          <% flash[:error].each do |error| %>
+          <ul>
+            <%= error %>
+          </ul>
+          <% end %>
+          <% end %>
+          <div class="row">
+            <form id="search" class="col s offset-s36 white" action="/products" method="get">
+              <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">search</i>
+                  <input id="icon_prefix" type="text" class="validate"  name='query' placeholder='product'>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container white layout_container z-depth-5">
+          <%= yield %>
+      </div>
+    </body>
 </html>
