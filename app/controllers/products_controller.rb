@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
         image: product['image']['sizes']['XLarge']['url'],
         link: product['clickUrl'],
         name: product['name'],
-        price: product['priceLabel'],
+        price: product['priceLabel']
       }
     end
     pp @products
