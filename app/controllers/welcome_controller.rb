@@ -30,7 +30,8 @@ class WelcomeController < ApplicationController
     pp  description_array << response[:description]
     end
 
-
+    clothing_array = ["suit", "formal wear", "tuxedo", "pocket", "textile", "sweater", "blouse", "t-shirt", "cardigan", "wool", "denim", "jeans", "trousers", "plaid", "dress shirt", "font", "wedding dress", "gown", "neck", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
+    "outerwear", "long sleeve t-shirt", "watch", "dress", "little black dress", "day dress", "bag", "handbag"]
     # clothing_item = params[:welcome][:image].original_filename
     #
     # service = Google::Apis::VisionV1::VisionService.new
