@@ -10,8 +10,17 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def clothing_array
+    ["suit", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
+    "outerwear", "long sleeve t-shirt", "watch", "dress", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
+  end
+
+  def find_final_response(description_array, clothing_array)
+    description_array.find { |search| clothing_array.include?(search) }
+  end
+
   def search_word
-    clothing_item = params[:welcome][:image].original_filename
+    clothing_item = params[:products][:image]
 
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
@@ -27,7 +36,7 @@ class ApplicationController < ActionController::Base
       }
     ])
 
-    pp response = service.annotate_image(annotate_image_request_object)
+    response = service.annotate_image(annotate_image_request_object)
     description_array = []
     response = response.to_h
     description_number = response[:responses][0][:label_annotations].length
@@ -41,7 +50,7 @@ class ApplicationController < ActionController::Base
   end
 
   def image_query
-    clothing_item = params[:welcome][:image].original_filename
+    clothing_item = params[:products][:image]
 
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
@@ -69,11 +78,11 @@ class ApplicationController < ActionController::Base
 
   #need to adjust shopstylecall
   def shopstylecall
-    query_params = params[:query]
-    limit = 4
-    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{query_params}&offset=0&limit=#{limit}").read
+    # query_params = search_word
+    limit = 20
+    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&offset=0&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
-    @products = shopstyle_response.map! do |product|
+    shopstyle_response.map! do |product|
       {
         image: product['image']['sizes']['XLarge']['url'],
         link: product['clickUrl'],
