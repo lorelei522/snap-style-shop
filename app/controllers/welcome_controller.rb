@@ -27,7 +27,7 @@ class WelcomeController < ApplicationController
     response_description_array = response[:responses][0][:label_annotations]
     pp  response_description_array
     response_description_array.each do |response|
-      description_array << response[:description]
+    pp  description_array << response[:description]
     end
 
 
