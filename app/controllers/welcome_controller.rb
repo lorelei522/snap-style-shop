@@ -1,11 +1,15 @@
 class WelcomeController < ApplicationController
   def index
+
+    # shopstylecall
   end
 
   def create
+    # binding.pry
     #helper method for Google API in Application Controller
-    search_word
-    # pp image_query
+    # pp search_word
+    pp @products = shopstylecall
+    redirect_to product_path(@products)
   end
 
   private
