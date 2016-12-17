@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root :to => 'welcome#index'
   resources :products
   resources :users
+  resources :welcome
 
   get 'sessions/new' => 'sessions#new'
   post 'sessions/login_attempt' => 'sessions#login_attempt'

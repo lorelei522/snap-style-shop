@@ -14,6 +14,9 @@ require 'open-uri'
 require 'json'
 require 'net/http'
 require 'pry'
+require 'googleauth'
+require 'google/apis/vision_v1'
+
 
 
 # require "rails/test_unit/railtie"

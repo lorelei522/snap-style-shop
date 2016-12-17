@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'pry-byebug'
 gem 'paperclip', "~> 5.0.0"
+gem 'google-api-client'
+gem 'googleauth'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
