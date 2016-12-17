@@ -23,15 +23,14 @@ class WelcomeController < ApplicationController
     description_array = []
     response = response.to_h
     description_number = response[:responses][0][:label_annotations].length
-    # binding.pry
     response_description_array = response[:responses][0][:label_annotations]
-    pp  response_description_array
+
     response_description_array.each do |response|
-    pp  description_array << response[:description]
+      description_array << response[:description]
     end
 
-    clothing_array = ["suit", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
-    "outerwear", "long sleeve t-shirt", "watch", "dress", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "hat", "fedora", "costume hat"]
+    find_final_response(description_array, clothing_array)
+
     # clothing_item = params[:welcome][:image].original_filename
     #
     # service = Google::Apis::VisionV1::VisionService.new
@@ -57,4 +56,14 @@ class WelcomeController < ApplicationController
     # colors_number << colors[:blue]
     # hexcode = "##{colors_number[0].to_s(16).rjust(2, '0').upcase}#{colors_number[1].to_s(16).rjust(2, '0').upcase}#{colors_number[2].to_s(16).rjust(2, '0').upcase}"
   end
+
+  private
+    def find_final_response(description_array, clothing_array)
+      description_array.find { |search| clothing_array.include?(search) }
+    end
+
+    def clothing_array
+      ["suit", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
+      "outerwear", "long sleeve t-shirt", "watch", "dress", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "hat", "fedora", "costume hat"]
+    end
 end
