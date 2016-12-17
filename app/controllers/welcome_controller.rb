@@ -23,7 +23,7 @@ class WelcomeController < ApplicationController
     description_array = []
     response = response.to_h
     description_number = response[:responses][0][:label_annotations].length
-    binding.pry
+    # binding.pry
     response_description_array = response[:responses][0][:label_annotations]
     pp  response_description_array
     response_description_array.each do |response|
