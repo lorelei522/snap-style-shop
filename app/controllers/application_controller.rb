@@ -10,9 +10,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  #put back "dress" #put in there for a test!!!!! -Lori
   def clothing_array
     ["suit", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
-    "outerwear", "long sleeve t-shirt", "watch", "dress", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
+    "outerwear", "long sleeve t-shirt", "watch", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
   end
 
   def find_final_response(description_array, clothing_array)
@@ -46,7 +47,7 @@ class ApplicationController < ActionController::Base
       description_array << response[:description]
     end
 
-    find_final_response(description_array, clothing_array)
+    pp find_final_response(description_array, clothing_array)
   end
 
   def image_query
@@ -79,9 +80,10 @@ class ApplicationController < ActionController::Base
   #need to adjust shopstylecall
   def shopstylecall
     # query_params = search_word
-    limit = 20
-    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&offset=0&limit=#{limit}").read
-    shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
+    limit = 50
+    # shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&offset=0&limit=#{limit}").read
+    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}").read
+    pp shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
       {
         image: product['image']['sizes']['XLarge']['url'],

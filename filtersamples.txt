@@ -1,0 +1,5 @@
+Prices 0-500
+&fl=p10&fl=p7&fl=p8&fl=p9&fl=p12&fl=p11&limit=#{limit}
+
+Prices 50-500
+&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}
