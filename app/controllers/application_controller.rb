@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
       description_array << response[:description]
     end
 
-    pp find_final_response(description_array, clothing_array)
+    find_final_response(description_array, clothing_array)
   end
 
   def image_query
@@ -77,13 +77,11 @@ class ApplicationController < ActionController::Base
     hexcode = "##{colors_number[0].to_s(16).rjust(2, '0').upcase}#{colors_number[1].to_s(16).rjust(2, '0').upcase}#{colors_number[2].to_s(16).rjust(2, '0').upcase}"
   end
 
-  #need to adjust shopstylecall
   def shopstylecall
-    # query_params = search_word
-    limit = 2
+    limit = 50
     # shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&offset=0&limit=#{limit}").read
     shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}").read
-    pp shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
+    shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
       {
         image: product['image']['sizes']['XLarge']['url'],

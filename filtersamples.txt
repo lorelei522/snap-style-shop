@@ -3,3 +3,24 @@ Prices 0-500
 
 Prices 50-500
 &fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}
+
+
+"sizes"=>
+ [{"name"=>"S", "canonicalSize"=>{"id"=>"83", "name"=>"S (4-6)"}},
+  {"name"=>"L", "canonicalSize"=>{"id"=>"87", "name"=>"L (12-14)"}}],
+
+  "sizes"=>
+ [{"name"=>"2", "canonicalSize"=>{"id"=>"81", "name"=>"XS (2)"}},
+  {"name"=>"6", "canonicalSize"=>{"id"=>"83", "name"=>"S (4-6)"}},
+  {"name"=>"10", "canonicalSize"=>{"id"=>"85", "name"=>"M (8-10)"}}],
+
+  "stock"=>
+ [{"color"=>{"name"=>"Black"}, "size"=>{"name"=>"L"}},
+  {"color"=>{"name"=>"Black"}, "size"=>{"name"=>"S"}}],
+
+  "stock"=>
+ [{"color"=>{"name"=>"BLACK COMBO"}, "size"=>{"name"=>"8"}},
+  {"color"=>{"name"=>"BLACK COMBO"}, "size"=>{"name"=>"4"}},
+  {"color"=>{"name"=>"BLACK COMBO"}, "size"=>{"name"=>"2"}},
+  {"color"=>{"name"=>"BLACK COMBO"}, "size"=>{"name"=>"10"}},
+  {"color"=>{"name"=>"BLACK COMBO"}, "size"=>{"name"=>"12"}}],

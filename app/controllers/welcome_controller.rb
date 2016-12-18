@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
     # binding.pry
     #helper method for Google API in Application Controller
     # pp search_word
-    pp @products = shopstylecall
+    @products = shopstylecall
     redirect_to product_path(@products)
   end
 
