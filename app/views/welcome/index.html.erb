@@ -10,12 +10,3 @@
 <% else %>
   <p>******ENTER DESCRIPTION P ABOUT LOGGING IN TO SEARCH******</p>
 <% end %>
-
-<div >
-  <h1>What should you wear today?</h1>
-    <%=  form_for(:products, :url => {:controller => 'products', :action => 'index'}, html: {:method => 'GET'}) do |f| %>
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-      <%= f.submit :Upload %>
-    <% end %>
-</div>
