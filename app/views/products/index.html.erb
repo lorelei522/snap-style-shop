@@ -1,19 +1,69 @@
-<div class="product">
-  <% if @products.length > 0 %>
-    <section id="search-results">
-      <% @products.each do |p| %>
-        <ul>
-          <li>
-            <div class="product-image"><a href="<%=p[:link]%>"><img src="<%=p[:image]%>" alt="Clothing Item"/></a></div>
-          </li>
-          <li>
-          <div> <%= p[:name] %> </div
-          </li>
-          <li>
-            <div class="product-price"><%= p[:price] %></div>
-          </li>
-        </ul>
-      <% end %>
-    </section>
-  <% end %>
+<!-- FILTER -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12">
+      <ul id="filters" class="filters font-alt">
+        <li><a href="#" data-filter="*" class="current">All <sup><small>.355</small></sup></a></li>
+        <li><a href="#" data-filter=".branding">Branding <sup><small>.78</small></sup></a></li>
+        <li><a href="#" data-filter=".design">Design <sup><small>.123</small></sup></a></li>
+        <li><a href="#" data-filter=".photo">Photo <sup><small>.144</small></sup></a></li>
+        <li><a href="#" data-filter=".web">Web <sup><small>.140</small></sup></a></li>
+      </ul>
+    </div>
+
+  </div>
 </div>
+<!-- /FILTER -->
+
+<!-- PORTFOLIO -->
+  <% if @products.length > 0 %>
+    <section id="portfolio" class="module">
+
+				<!-- WORKS GRID -->
+		<div class="row">
+
+			<div id="works-grid" class="works-grid works-hover-w">
+
+				<!-- DO NOT DELETE THIS DIV -->
+				<div class="grid-sizer"></div>
+          <ul>
+            <% @products.each do |p| %>
+
+					<!-- PORTFOLIO ITEM -->
+          <li>
+            <div class="work-item tall design">
+							<a href="<%=p[:link]%>">
+								<img src="<%=p[:image]%>" alt="Search Result">
+								<div class="work-caption font-alt">
+									<h3 class="work-title"><%= p[:name] %></h3>
+									<div class="work-descr">
+										<%= p[:price] %>
+									</div>
+								</div>
+							</a>
+						</div>
+          </li>
+      <% end %>
+    </ul>
+    <% end %>
+
+						<!-- /PORTFOLIO ITEM -->
+
+					</div>
+
+				</div>
+				<!-- /WORKS GRID -->
+			</div>
+		</section>
+		<!-- /PORTFOLIO -->
+<!-- SHOW MORE -->
+<div class="row m-t-70 text-center wow fadeInUp">
+  <div class="col-sm-12">
+
+    <button id="show-more" class="btn btn-block btn-lg btn-g show-more">More works</button>
+
+  </div>
+</div>
+<!-- /SHOW MORE -->
+<!-- OLD STUFF BELOW: -->
