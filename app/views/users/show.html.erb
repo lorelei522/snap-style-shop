@@ -21,3 +21,28 @@
   </div>
 
 </div>
+
+  <div class="name-container">
+    <h3>Favorites</h3>
+  </div>
+
+  <div class="users-favorites">
+      <% @user.favorites.each do |favorite| %>
+        <div class="favorite">
+        <ul>
+          <li>
+            <div class="product-image"><%= link_to image_tag(favorite.product[:image]), favorite.product[:link] %></div>
+          </li>
+          <li>
+            <div> <%= favorite.product[:name] %> </div>
+          </li>
+          <li>
+            <div class="product-price"><%= favorite[:price] %></div>
+          </li>
+          <% if logged_in? && current_user.id == @user.id  %>
+          <%= link_to 'Unfavorite', favorite_path(favorite), method: :delete %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
