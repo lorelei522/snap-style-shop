@@ -17,65 +17,55 @@
 <!-- /FILTER -->
 
 <!-- PORTFOLIO -->
-  <% if @products.length > 0 %>
-    <section id="portfolio" class="module">
-
-				<!-- WORKS GRID -->
-		<div class="row">
-
-			<div id="works-grid" class="works-grid works-hover-w">
-
-				<!-- DO NOT DELETE THIS DIV -->
-				<div class="grid-sizer"></div>
-          <ul>
-            <% @products.each do |p| %>
-            <div class="product">
-					<!-- PORTFOLIO ITEM -->
-          <li>
+<% if @products.length > 0 %>
+  <section id="portfolio" class="module">
+    <!-- WORKS GRID -->
+    <div class="row">
+      <div id="works-grid" class="works-grid works-hover-w">
+        <!-- DO NOT DELETE THIS DIV -->
+        <div class="grid-sizer"></div>
+        <% @products.each do |p| %>
+        <!-- PORTFOLIO ITEM -->
+          <div class="product">
             <div class="work-item tall design">
-							<a href="<%=p[:link]%>">
-								<img src="<%=p[:image]%>" alt="Search Result">
-								<div class="work-caption font-alt">
-									<h3 class="work-title"><%= p[:name] %></h3>
-									<div class="work-descr">
-										<%= p[:price] %>
-									</div>
-								</div>
-							</a>
-						</div>
-            <div class="favorite-button">
-              <% if logged_in? %>
-                <% unless product_favorited? %>
-                  <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
-                    <%= f.hidden_field :image, :value => p[:image] %>
-                    <%= f.hidden_field :link, :value => p[:link] %>
-                    <%= f.hidden_field :name, :value => p[:name] %>
-                    <%= f.hidden_field :price, :value => p[:price] %>
-                    <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Favorite This!<%end%>
-                  <% end %>
-                <% end %>
-              <% end %>
+              <a href="<%=p[:link]%>">
+                <img src="<%=p[:image]%>" alt="Search Result">
+                <div class="work-caption font-alt">
+                  <h3 class="work-title"><%= p[:name] %></h3>
+                  <div class="work-descr">
+                    <%= p[:price] %>
+                  </div>
+                  <div class="favorite-button">
+                    <% if logged_in? %>
+                      <% if product_favorited? %>
+                        <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Loved it!<%end%>
+                      <% else %>
+                        <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
+                          <%= f.hidden_field :image, :value => p[:image] %>
+                          <%= f.hidden_field :link, :value => p[:link] %>
+                          <%= f.hidden_field :name, :value => p[:name] %>
+                          <%= f.hidden_field :price, :value => p[:price] %>
+                          <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Love it?<%end%>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </a>
             </div>
-          </li>
-      <% end %>
-    </ul>
-    <% end %>
-
-						<!-- /PORTFOLIO ITEM -->
-
-					</div>
-
-				</div>
-				<!-- /WORKS GRID -->
-			</div>
-		</section>
-		<!-- /PORTFOLIO -->
+          </div>
+        <% end %>
+        <!-- /PORTFOLIO ITEM -->
+      </div>
+    <!-- /WORKS GRID -->
+    </div>
+  </section>
+<% end %>
+<!-- /PORTFOLIO -->
 <!-- SHOW MORE -->
 <div class="row m-t-70 text-center wow fadeInUp">
   <div class="col-sm-12">
-
     <button id="show-more" class="btn btn-block btn-lg btn-g show-more">More works</button>
-
   </div>
 </div>
 <!-- /SHOW MORE -->

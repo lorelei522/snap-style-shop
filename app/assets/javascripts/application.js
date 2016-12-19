@@ -26,7 +26,7 @@ $(document).ready(function() {
       method: "post",
       data: data
     }).done(function(response){
-      $(thisForm).children().find("button").text("Unfavorite")
+      $(thisForm).children().find("button").text("Loved It!")
     })
   });
 
@@ -44,4 +44,3 @@ $(document).ready(function() {
     })
   });
 })
-
