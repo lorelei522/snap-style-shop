@@ -15,12 +15,3 @@ class ProductsController < ApplicationController
   def show
 
   end
-
-
-
-private
-    def shopstyle_api
-      "http://api.shopstyle.com/api/v2/products?pid="
-    end
-
-end
