@@ -4,7 +4,7 @@
       <% @products.each do |p| %>
         <ul>
           <li>
-            <div class="product-image"><a href="<%= p[:link]%>"><img src="<%=p[:image]%>" alt="Clothing Item"/></a></div>
+            <div class="product-image"><%= link_to image_tag(p[:image], alt: "Clothing Item"), p[:link] %></div>
           </li>
           <li>
           <div> <%= p[:name] %> </div

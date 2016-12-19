@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20161218215759) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "brand"
     t.string   "image",      null: false
     t.string   "link",       null: false
     t.string   "name",       null: false
