@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome to Personal Shopper, #{user.username}!"
       redirect_to users_path
     else
-      flash[:danger] = 'Invalid email/password combination'
+      @errors = ['Invalid email/password combination']
       render "new"
     end
   end
