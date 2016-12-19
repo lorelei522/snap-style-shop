@@ -5,4 +5,19 @@
   <div class="name-container">
     <h3><%= @user.username%>'s Profile</h3>
   </div>
-</div>
+<!-- Below does not work yet -->
+  <div class="users-favorites">
+      <% @user.favorites.each do |favorite| %>
+        <ul>
+          <li>
+            <div class="product-image"><a href="<%= favorite[:link]%>"><img src="<%=favorite[:image]%>" alt="Clothing Item"/></a></div>
+          </li>
+          <li>
+          <div> <%= favorite[:name] %> </div
+          </li>
+          <li>
+            <div class="product-price"><%= favorite[:price] %></div>
+          </li>
+        </ul>
+      <% end %>
+  </div>
