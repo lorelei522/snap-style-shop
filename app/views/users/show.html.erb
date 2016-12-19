@@ -8,6 +8,7 @@
 <!-- Below does not work yet -->
   <div class="users-favorites">
       <% @user.favorites.each do |favorite| %>
+        <div class="favorite">
         <ul>
           <li>
             <div class="product-image"><%= link_to image_tag(favorite.product[:image]), favorite.product[:link] %></div>
@@ -23,4 +24,5 @@
           <% end %>
         </ul>
       <% end %>
+    </div>
   </div>
