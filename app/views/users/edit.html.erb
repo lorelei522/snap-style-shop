@@ -1,0 +1,11 @@
+<p>Update profile
+  <%= form_for @user do |f| %>
+    <%=f.label :image %><br>
+    <%=f.file_field :image %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :aboutme %>
+    <%= f.text_area :aboutme %>
+    <%= f.submit :Update %>
+  <% end %>
+</p>

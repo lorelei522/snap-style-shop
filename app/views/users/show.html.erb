@@ -7,13 +7,10 @@
     <%= image_tag(user_avatar) %>
   </div>
 
+
+
   <% if logged_in? && current_user %>
-    <p>Update profile photo:</p>
-    <%= form_for @user do |f| %>
-      <%=f.label :image %><br>
-      <%=f.file_field :image %>
-      <%= f.submit :Update %>
-    <% end %>
+    <%= link_to "Update profile", edit_user_path(@user), method: :get %>
   <% end %>
 
   <div class="about-container">
