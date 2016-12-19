@@ -29,6 +29,8 @@ gem 'pry-byebug'
 gem 'paperclip', "~> 5.0.0"
 gem 'google-api-client'
 gem 'googleauth'
+# gem 'google/apis/vision_v1'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
