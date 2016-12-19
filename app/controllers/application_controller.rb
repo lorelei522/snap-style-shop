@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :logged_in?, :current_user, :user_avatar
+  helper_method :logged_in?, :current_user, :user_avatar, :product_favorited?
+
 
   def logged_in?
     !!current_user
@@ -14,14 +15,18 @@ class ApplicationController < ActionController::Base
     if @user.image_file_name != nil
       return @user.image.url(:thumb)
     else
-      # Assuming you have a default.jpg in your assets folder
       return "/assets/mannequin.jpg"
     end
   end
 
+  def authorized?(resource)
+    resource.user == current_user
+  end
+
+  #put back "dress" #put in there for a test!!!!! -Lori
   def clothing_array
     ["suit", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
-    "outerwear", "long sleeve t-shirt", "watch", "dress", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
+    "outerwear", "long sleeve t-shirt", "watch", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
   end
 
   def find_final_response(description_array, clothing_array)
@@ -86,13 +91,11 @@ class ApplicationController < ActionController::Base
     pp name(hexcode(colors_number), colors_number)
   end
 
-  #need to adjust shopstylecall
   def shopstylecall
-    # query_params = search_word
-    limit = 50
     shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&offset=0&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
+      # binding.pry
       {
         image: product['image']['sizes']['XLarge']['url'],
         link: product['clickUrl'],
@@ -100,6 +103,13 @@ class ApplicationController < ActionController::Base
         price: product['priceLabel']
       }
     end
+  end
+
+  def product_favorited?
+    @current_user.favorites do |favorite|
+      return true if p.id == favorite.product_favorited
+    end
+    false
   end
 
   def hexcode(rgb)

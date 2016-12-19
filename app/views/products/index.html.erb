@@ -29,7 +29,7 @@
 				<div class="grid-sizer"></div>
           <ul>
             <% @products.each do |p| %>
-
+            <div class="product">
 					<!-- PORTFOLIO ITEM -->
           <li>
             <div class="work-item tall design">
@@ -43,6 +43,19 @@
 								</div>
 							</a>
 						</div>
+            <div class="favorite-button">
+              <% if logged_in? %>
+                <% unless product_favorited? %>
+                  <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
+                    <%= f.hidden_field :image, :value => p[:image] %>
+                    <%= f.hidden_field :link, :value => p[:link] %>
+                    <%= f.hidden_field :name, :value => p[:name] %>
+                    <%= f.hidden_field :price, :value => p[:price] %>
+                    <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Favorite This!<%end%>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </li>
       <% end %>
     </ul>
