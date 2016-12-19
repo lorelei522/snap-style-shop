@@ -7,3 +7,4 @@ class ProductsController < ApplicationController
   def index
     @products = shopstylecall
   end
+end
