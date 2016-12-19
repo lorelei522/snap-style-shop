@@ -9,5 +9,5 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, :username
 
   has_many :favorites
-  
+
 end
