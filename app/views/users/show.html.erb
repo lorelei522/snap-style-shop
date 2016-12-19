@@ -37,7 +37,9 @@
             <div class="product-price"><%= favorite[:price] %></div>
           </li>
           <% if logged_in? && current_user.id == @user.id  %>
-          <%= link_to 'Unfavorite', favorite_path(favorite), method: :delete %>
+          <div class="unlike-button">
+          <%= button_to "Unlike", favorite_path(favorite), method: :delete, :class => 'btn btn-default blue-grey lighten-2'%>
+        </div>
           <% end %>
         </ul>
       <% end %>
