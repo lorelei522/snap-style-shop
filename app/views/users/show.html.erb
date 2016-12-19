@@ -1,21 +1,23 @@
 <div class="container">
+  <div class="name-container">
+    <h3><%= @user.username %></h3>
+  </div>
+
   <div class="avatar-container">
     <%= image_tag(user_avatar) %>
   </div>
 
   <% if logged_in? && current_user %>
-    <p>Update profile photo</p>
+    <p>Update profile photo:</p>
     <%= form_for @user do |f| %>
-     <%=f.label :image %><br>
-     <%=f.file_field :image %>
-    <%= f.submit :Update %>
-  <% end %>
+      <%=f.label :image %><br>
+      <%=f.file_field :image %>
+      <%= f.submit :Update %>
+    <% end %>
   <% end %>
 
-  <div class="name-container">
-    <h3><%= @user.username %>'s Profile</h3>
-  </div>
   <div class="about-container">
-    <p><%= @user.about_me %></p>
+    <p><%= @user.aboutme %></p>
   </div>
+
 </div>
