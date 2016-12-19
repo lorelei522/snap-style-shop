@@ -12,3 +12,36 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+//= require_tree .
+
+$(document).ready(function() {
+  $(".product").on("submit", ".favorite-button", function(event){
+    event.preventDefault();
+    var thisForm = this
+    var url = $(this).children().attr("action")
+    var data = $(this).children().children().serialize()
+    $.ajax({
+      url: url,
+      method: "post",
+      data: data
+    }).done(function(response){
+      $(thisForm).children().find("button").text("Unfavorite")
+    })
+  });
+
+  $(".product").on("submit", ".favorite-button", function(event){
+    event.preventDefault();
+    var thisForm = this
+    var url = $(this).children().attr("action")
+    var data = $(this).children().children().serialize()
+    $.ajax({
+      url: url,
+      method: "post",
+      data: data
+    }).done(function(response){
+      $(thisForm).children().find("button").text("Unfavorite")
+    })
+  });
+})
+
