@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161217220710) do
     t.string   "username",           null: false
     t.string   "password_digest",    null: false
     t.string   "email",              null: false
-    t.string   "about_me"
+    t.string   "aboutme"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
