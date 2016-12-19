@@ -7,20 +7,3 @@ class ProductsController < ApplicationController
   def index
     @products = shopstylecall
   end
-
-  def create
-
-  end
-
-  def show
-
-  end
-
-
-
-private
-    def shopstyle_api
-      "http://api.shopstyle.com/api/v2/products?pid="
-    end
-
-end

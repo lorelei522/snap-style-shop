@@ -1,6 +1,11 @@
 <h1>Welcome Page</h1>
+
+  <% if logged_in? %>
   <%=  form_for(:products, :url => {:controller => 'products', :action => 'index'}, html: {:method => 'GET'}) do |f| %>
     <%= f.label :image %>
     <%= f.file_field :image %>
     <%= f.submit :Upload %>
   <% end %>
+<% else %>
+  <p>******ENTER DESCRIPTION P ABOUT LOGGING IN TO SEARCH******</p>
+<% end %>

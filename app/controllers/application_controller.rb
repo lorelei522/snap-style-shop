@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :logged_in?, :current_user
+  helper_method :logged_in?, :current_user, :user_avatar
 
   def logged_in?
     !!current_user
@@ -8,6 +8,15 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
+  end
+
+  def user_avatar
+    if @user.image_file_name != nil
+      return @user.image.url(:thumb)
+    else
+      # Assuming you have a default.jpg in your assets folder
+      return "/assets/mannequin.jpg"
+    end
   end
 
   def clothing_array
