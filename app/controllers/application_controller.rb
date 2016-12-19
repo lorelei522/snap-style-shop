@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :logged_in?, :current_user
+  helper_method :logged_in?, :current_user, :product_favorited?
 
   def logged_in?
     !!current_user
@@ -78,11 +78,12 @@ class ApplicationController < ActionController::Base
   end
 
   def shopstylecall
-    limit = 50
+    limit = 5
     # shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&offset=0&limit=#{limit}").read
     shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{search_word}&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
+      # binding.pry
       {
         image: product['image']['sizes']['XLarge']['url'],
         link: product['clickUrl'],
@@ -90,6 +91,13 @@ class ApplicationController < ActionController::Base
         price: product['priceLabel']
       }
     end
+  end
+
+  def product_favorited?
+    @current_user.favorites do |favorite|
+      return true if p.id == favorite.product_favorited
+    end
+    false
   end
 
 end
