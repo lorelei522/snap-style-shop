@@ -25,6 +25,14 @@ class UsersController < ApplicationController
    end
  end
 
+def edit
+end
+
+def update
+    @user = User.find(params[:id])
+    @user.update_attribute(:image, params[:user][:image])
+end
+
 private
 
  def user_params
