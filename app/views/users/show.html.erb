@@ -18,6 +18,9 @@
           <li>
             <div class="product-price"><%= favorite[:price] %></div>
           </li>
+          <% if logged_in? && current_user.id == @user.id  %>
+          <%= link_to 'Unfavorite', favorite_path(favorite), method: :delete %>
+          <% end %>
         </ul>
       <% end %>
   </div>

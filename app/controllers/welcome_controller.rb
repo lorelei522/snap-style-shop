@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
 
   def create
 
-    @products = shopstylecall
+  @products = shopstylecall
     redirect_to product_path(@products)
   end
 
