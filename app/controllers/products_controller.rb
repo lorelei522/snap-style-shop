@@ -7,11 +7,3 @@ class ProductsController < ApplicationController
   def index
     @products = shopstylecall
   end
-
-  def create
-
-  end
-
-  def show
-
-  end
