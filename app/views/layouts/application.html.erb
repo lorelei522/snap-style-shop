@@ -4,7 +4,7 @@
     <title>Snap+Style+Shop</title>
     <%= csrf_meta_tags %>
 
-
+    <link href="https://fonts.googleapis.com/css?family=Lato|Sree+Krushnadevaraya" rel="stylesheet">
     <!-- Favicons -->
   	<link rel="shortcut icon" href="/assets/favicon.png">
   	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -52,6 +52,7 @@
               <li><%= link_to "Home", root_url  %></li>
               <li><%= link_to "Create an Account", new_user_path  %></li>
               <li><%= link_to "Log In", new_session_path  %></li>
+            <% end %>
               <li class="slidedown">
                 <a href="#">Squad Goals</a>
                 <ul>
@@ -61,7 +62,6 @@
                   <li><a href="https://github.com/sofiaclara93/">Sofia Cepeda</a></li>
                 </ul>
               </li>
-            <% end %>
   				</ul>
 
   			</nav>
@@ -74,7 +74,7 @@
   				<div class="row">
 
   					<div class="col-sm-12 text-center">
-  						<p class="copyright font-alt m-b-0">© 2016, Snap+Style+Shop</p>
+  						<h6 class="copyright font-alt m-b-0">© 2016, Snap+Style+Shop</h6>
   					</div>
 
   				</div>
@@ -94,9 +94,9 @@
 
   				<div class="navbar-header">
   					<!-- YOU LOGO HERE -->
-  					<a class="navbar-brand" href="index.html">
+  					<a class="navbar-brand" href="/">
   						<!-- IMAGE OR SIMPLE TEXT -->
-              <p>Snap+Style+Shop</p>
+              <p class="logo">Snap+Style+Shop</p>
   					</a>
   				</div>
 

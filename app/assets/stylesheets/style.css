@@ -13,7 +13,8 @@ General Styles
 
 body {
 	background: #fff;
-	font: 400 14px/1.8 "Open Sans", sans-serif;
+	/*font: 400 14px/1.8 "Open Sans", sans-serif;*/
+	font-family: 'Sree Krushnadevaraya', serif;
 	color: #777;
 	overflow-x: hidden;
 	-ms-overflow-style: scrollbar;
@@ -183,7 +184,8 @@ blockquote.serif-quote {
 }
 
 .font-serif {
-	font-family: "Libre Baskerville", "Times New Roman", sans-serif;
+	/*font-family: "Libre Baskerville", "Times New Roman", sans-serif;*/
+	font-family: 'Sree Krushnadevaraya', serif;
 	letter-spacing: 1px;
 	font-style: italic;
 }
@@ -1273,6 +1275,7 @@ Navigation
 
 #nav > li > a {
 	font-family: "Dosis", sans-serif;
+	/*font-family: 'Sree Krushnadevaraya', serif;*/
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	font-size: 24px;

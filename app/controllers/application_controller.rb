@@ -89,7 +89,7 @@ class ApplicationController < ActionController::Base
   #need to adjust shopstylecall
   def shopstylecall
     # query_params = search_word
-    limit = 20
+    limit = 50
     shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{Dotenv.load["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&offset=0&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
