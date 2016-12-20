@@ -1,5 +1,3 @@
-<h1>Log in</h1>
-
 <% if @errors %>
     <div id="error_explanation">
       <p>
@@ -13,17 +11,14 @@
     </div>
 <% end %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_tag(:action =>'create') do  %>
-      <p>Email </br>
-      <%= text_field_tag :email %></p>
-        <p>Password </br>
-      <%= password_field_tag :password %></p>
+<div class="container center-div">
+  <h1>Log in</h1>
 
-      <%= submit_tag "Log in" %>
-    <% end %>
+      <%= form_tag(:action =>'create', class: 'form-control') do  %>
+        <p>Email: <%= text_field_tag :email %></br></p>
+        <p>Password: <%= password_field_tag :password %></br></p>
+        <br></br>
+        <%= submit_tag "Log in", class: "btn btn-default" %>
+      <% end %>
 
-
-  </div>
 </div>

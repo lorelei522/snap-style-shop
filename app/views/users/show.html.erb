@@ -3,7 +3,9 @@
         <center>
         <a href="#aboutModal" data-toggle="modal" data-target="#myModal"> <%= image_tag(user_avatar, name: "aboutme", width:"140", height:"140", class:"img-circle") %> </a>
         <h3><%= @user.username %></h3>
-        <em>Click image for more</em>
+        <p class="text-center"><strong>Bio:</strong><br>
+            <%= @user.aboutme %> </p>
+        <em>Click image to update profile</em>
 		</center>
     </div>
     <!-- Modal -->
@@ -12,7 +14,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" id="myModalLabel">More About <%= @user.username %></h4>
+                    <h4 class="modal-title" id="myModalLabel"><%= @user.username %></h4>
                     </div>
                 <div class="modal-body">
                     <center>
@@ -42,11 +44,8 @@
 
 <!--  FORMER PROFILE HTML -->
 
-  <div class="name-container">
-    <h3>Favorites</h3>
-  </div>
-
   <div class="users-favorites">
+    <h3>Items You've Loved:</h3>
       <% @user.favorites.each do |favorite| %>
         <div class="favorite">
         <ul>

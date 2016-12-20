@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container center-div">
 
-  <p>Update profile</p>
+  <h3>Update profile</h3>
     <%= form_for @user, html: {multipart: true} do |f| %>
       <%=f.label :image %><br>
       <%=f.file_field :image %>
