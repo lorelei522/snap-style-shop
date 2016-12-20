@@ -9,8 +9,7 @@ class ItemsController < ApplicationController
     @item =  Item.new(item_params)
 
     if @item.save
-      #check where to redirect to
-      redirect_to
+      @item =  shopstylecall
     else
       flash[:notice]= "Picture is invalid"
       render "new"
