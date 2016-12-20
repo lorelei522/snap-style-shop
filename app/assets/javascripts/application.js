@@ -21,27 +21,48 @@ $(document).ready(function() {
     var thisForm = this
     var url = $(this).children().attr("action")
     var data = $(this).children().children().serialize()
+    debugger;
     $.ajax({
       url: url,
       method: "post",
       data: data
     }).done(function(response){
-      $(thisForm).children().find("button").text("Unfavorite")
+        $(thisForm).children().html(response)
+      // $(thisForm).children().find("button").text("Loved It!")
+      $(thisForm).children().addClass("favorited")
     })
   });
 
-  $(".product").on("submit", ".favorite-button", function(event){
+  $(".product").on("submit", ".favorited", function(event){
+    event.preventDefault();
+    debugger;
+    var thisForm = this
+    var id = $(thisForm).children().first().siblings().first().attr("id")
+    var url = $(thisForm).attr("action") + "/" + id
+    var data = $(thisForm).children().serialize()
+    $.ajax({
+      url: url,
+      method: "delete",
+      data: data
+    }).done(function(response){
+      // $(thisForm).removeClass("favorited")
+      // $(thisForm).find("button").text("Love it?")
+      $(thisForm).children().html(response)
+    }).fail(function(response){
+      console.log(response)
+    })
+  });
+
+  $(".favorite").on("submit", ".unlike-button", function(event){
     event.preventDefault();
     var thisForm = this
     var url = $(this).children().attr("action")
-    var data = $(this).children().children().serialize()
     $.ajax({
       url: url,
-      method: "post",
-      data: data
+      method: "delete",
+      data: $(thisForm).children().serialize()
     }).done(function(response){
-      $(thisForm).children().find("button").text("Unfavorite")
+      $(thisForm).parent().remove()
     })
   });
 })
-
