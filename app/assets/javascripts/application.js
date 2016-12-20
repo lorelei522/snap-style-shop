@@ -16,41 +16,53 @@
 //= require_tree .
 
 $(document).ready(function() {
-
   $(".product").on("submit", ".favorite-button", function(event){
     event.preventDefault();
+    debugger;
     var thisForm = this
     var url = $(this).children().attr("action")
     var data = $(this).children().children().serialize()
+    console.log("WOWO I was just clicked here's my action", url)
+    console.log('yo heres the data dawg', data)
     $.ajax({
       url: url,
       method: "post",
       data: data
     }).done(function(response){
-        $(thisForm).children().html(response)
-      // $(thisForm).children().find("button").text("Loved It!")
+        console.log('heyooo im in favorite button response')
+        console.log('this is "thisForm" on first ajax request', thisForm)
+        $(thisForm).html(response)
+        $(thisForm).removeClass("favorite-button")
+        var id = $(thisForm).children().children().first().siblings().first().attr("id")
       $(thisForm).children().addClass("favorited")
+      $(thisForm).children().attr("id", id)
+    })
+  });
+  //
+  $(".product").on("submit", ".favorited", function(event){
+    console.log("in .product submit");
+    event.preventDefault();
+    debugger;
+    var thisForm = this
+    var id = $(thisForm).children().first().siblings().first().attr("id")
+    var url = $(thisForm).attr("action")
+    var data = $(thisForm).children().serialize()
+    var fullUrl = url + "?" + data;
+    // debugger;
+    $.ajax({
+      url: fullUrl,
+      method: "delete"
+    }).done(function(response){
+      console.log("in .product done")
+      console.log("this is the second ajax request")
+      console.log("current 'thisForm'", thisForm)
+      debugger
+      $(thisForm).html(response.like_partial)
+      $(thisForm.parent().addClass("favorite-button")
+      $(thisForm).removeClass("favorited")
     })
   });
 
-  $(".product").on("submit", ".favorited", function(event){
-    event.preventDefault();
-    var thisForm = this
-    var id = $(thisForm).children().first().siblings().first().attr("id")
-    var url = $(thisForm).attr("action") + "/" + id
-    var data = $(thisForm).children().serialize()
-    $.ajax({
-      url: url,
-      method: "delete",
-      data: data
-    }).done(function(response){
-      // $(thisForm).removeClass("favorited")
-      // $(thisForm).find("button").text("Love it?")
-      $(thisForm).children().html(response)
-    }).fail(function(response){
-      console.log(response)
-    })
-  });
 
   $(".favorite").on("submit", ".unlike-button", function(event){
     event.preventDefault();
