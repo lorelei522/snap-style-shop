@@ -4,17 +4,80 @@
 
 
   <!-- YOUTUBE VIDEO-->
-  <div class="video-player" data-property="{videoURL:'https://youtu.be/QCHpEucTWgo?t=23s', containment:'.module-video', quality:'large', startAt:23, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:0, mute:true}"></div>
+  <div class="video-player" data-property="{videoURL:'https://youtu.be/QCHpEucTWgo?t=23s', containment:'.module-video', quality:'large', startAt:24, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:0, mute:true}"></div>
   <!-- /YOUTUBE VIDEO-->
 
 </section>
 <!-- /HERO -->
-<% if logged_in? %>
-  <%=  form_for(:products, :url => {:controller => 'products', :action => 'index'}, html: {:method => 'GET'}) do |f| %>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <%= f.submit :Upload, class:"btn btn-d btn-round" %>
+<div class="container center-div">
+    <% if logged_in? %>
+    <%=  form_for(:products, :url => {:controller => 'products', :action => 'index'}, html: {:method => 'GET'}) do |f| %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <%= f.submit :Upload, class:"btn btn-d btn-round" %>
+    <% end %>
+  <% else %>
+    <h1>Please log in to search for your next must-have!</h1>
   <% end %>
-<% else %>
-  <h1>Please log in to search for your next must-have!</h1>
-<% end %>
+</div>
+
+<!-- SERVICES -->
+<div class="container">
+
+  <!-- MODULE TITLE -->
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2 class="module-title">HOW IT WORKS</h2>
+    </div>
+  </div>
+  <!-- /MODULE TITLE -->
+
+  <div class="row multi-columns-row">
+
+    <!-- CONTENT BOX -->
+    <div class="col-sm-6 col-md-4 col-lg-4">
+      <div class="content-box">
+        <div class="content-box-icon">
+          <i class="ion-camera"></i>
+        </div>
+        <h5 class="content-box-title">SNAP</h5>
+        <div class="content-box-text text-center">
+          See something you love that isn't in stores? Take a picture of it.
+        </div>
+      </div>
+    </div>
+    <!-- /CONTENT BOX -->
+
+    <!-- CONTENT BOX -->
+    <div class="col-sm-6 col-md-4 col-lg-4">
+      <div class="content-box">
+        <div class="content-box-icon">
+          <i class="ion-heart"></i>
+        </div>
+        <h5 class="content-box-title">STYLE</h5>
+        <div class="content-box-text text-center">
+          Upload the picture into the search bar above.
+        </div>
+      </div>
+    </div>
+    <!-- /CONTENT BOX -->
+
+    <!-- CONTENT BOX -->
+    <div class="col-sm-6 col-md-4 col-lg-4">
+      <div class="content-box">
+        <div class="content-box-icon">
+          <i class="ion-bag"></i>
+        </div>
+        <h5 class="content-box-title">SHOP</h5>
+        <div class="content-box-text text-center">
+          Save your favorite pieces to your profile and shop!
+        </div>
+      </div>
+    </div>
+    <!-- /CONTENT BOX -->
+
+  </div>
+
+</div>
+
+<!-- /SERVICES -->
