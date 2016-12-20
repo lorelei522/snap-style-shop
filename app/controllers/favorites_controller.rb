@@ -7,9 +7,8 @@ class FavoritesController < ApplicationController
       @favorite.user_id = current_user.id
       @favorite.save
       if request.xhr?
-        # binding.pry
-        # response.format =
-        render json: {id: @favorite.id}
+        render 'products/_delete_partial', layout: false
+        # render json: {id: @favorite.id}
       end
     end
   end
