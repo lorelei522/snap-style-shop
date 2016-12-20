@@ -19,13 +19,12 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    # binding.pry
      favorite = Favorite.find(params[:id])
      @product = favorite.product
      if logged_in? && authorized?(favorite)
       favorite.destroy
       if request.xhr?
-
+        render json: {status: "status 200"}
       else
   #stretch: give non-JS users access to delete
         redirect_to user_path(current_user)
