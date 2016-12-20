@@ -58,6 +58,27 @@ footer > .container {
 }
 
 .item {
+  height: 550px;
   padding: 40px;
   text-align: center;
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favorite-image a img {
+  height: 300px;
+  width: auto;
+  object-fit: cover;
+}
+
+.favorite-text {
+  /*margin-top: 25px;*/
+}
+
+.unlike-button {
+  /*margin-top: 10px;*/
 }

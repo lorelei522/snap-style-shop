@@ -46,17 +46,19 @@
     <h3>Items You've Loved:</h3>
     <div class="row">
     <% @user.favorites.each do |favorite| %>
-      <div class="favorite">
-          <section class="col-sm-4 item">
-            <div><%= link_to image_tag(favorite.product[:image]), favorite.product[:link] %></div>
-            <div><%= favorite.product[:name] %></div>
-            <div><%= favorite.product[:price] %></div>
+      <div class="favorite col-xs-12 col-sm-6 col-md-4 col-lg-3 item">
+            <div class="favorite-image"><%= link_to image_tag(favorite.product[:image]), favorite.product[:link] %></div>
+
+            <div class="favorite-text">
+              <div><%= favorite.product[:name] %></div>
+              <div><%= favorite.product[:price] %></div>
+            </div>
+
             <% if logged_in? && current_user.id == @user.id  %>
               <div class="unlike-button">
                 <%= button_to "Unlike", favorite_path(favorite), method: :delete, :class => 'btn btn-default'%>
               </div>
             <% end %>
-          </section>
         </div>
     <% end %>
     </div>
