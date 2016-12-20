@@ -27,6 +27,28 @@ $(document).ready(function() {
       data: data
     }).done(function(response){
       $(thisForm).children().find("button").text("Loved It!")
+      $(thisForm).addClass("favorited")
+      $(thisForm).attr("id", response.id.toString())
+      debugger;
+    })
+  });
+
+  $(".product").on("submit", ".favorited", function(event){
+    event.preventDefault();
+    var thisForm = this
+    debugger;
+    var url = $(this).children().attr("action") + "/" + $(this).attr("id")
+    var data = $(this).attr("id")
+    $.ajax({
+      url: url,
+      method: "delete",
+      data: data
+    }).done(function(response){
+      debugger;
+      $(thisForm).children().find("button").text("Love it?")
+    }).fail(function(response){
+      debugger;
+      console.log(response)
     })
   });
 
@@ -39,7 +61,8 @@ $(document).ready(function() {
       method: "delete",
       data: $(thisForm).children().serialize()
     }).done(function(response){
-      $(thisForm).parent().parent().remove()
+      debugger;
+      $(thisForm).parent().remove()
     })
   });
 })
