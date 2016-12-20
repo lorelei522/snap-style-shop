@@ -1,23 +1,46 @@
 <div class="container">
-  <div class="name-container">
-    <h3><%= @user.username %></h3>
-  </div>
-
-  <div class="avatar-container">
-    <%= image_tag(user_avatar) %>
-  </div>
-
-
-
-  <% if logged_in? && current_user %>
-    <%= link_to "Update profile", edit_user_path(@user), method: :get %>
-  <% end %>
-
-  <div class="about-container">
-    <p><%= @user.aboutme %></p>
-  </div>
-
+    <div class="span3 well">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"> <%= image_tag(user_avatar, name: "aboutme", width:"140", height:"140", class:"img-circle") %> </a>
+        <h3><%= @user.username %></h3>
+        <em>Click image for more</em>
+		</center>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">More About <%= @user.username %></h4>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    <%= image_tag(user_avatar, name: "aboutme", width:"140", height:"140", class:"img-circle") %>
+                    <h3 class="media-heading"><%= @user.username %></h3>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left"><strong>Bio:</strong><br>
+                        <%= @user.aboutme %> </p>
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                      <% if logged_in? && current_user %>
+                      <button type="button" class="btn btn-default"><%= link_to "Update profile", edit_user_path(@user), method: :get %></button>
+                      <% end %>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hide bio</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<!--  FORMER PROFILE HTML -->
 
   <div class="name-container">
     <h3>Favorites</h3>
