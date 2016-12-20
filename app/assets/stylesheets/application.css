@@ -36,6 +36,12 @@ main {
   flex: 1 0 auto;
 }
 
+.center-div {
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 150px;
+}
+
 footer {
   margin-top: 200px;
 }
@@ -45,8 +51,6 @@ footer > .container {
 
 }
 
-.center-div {
-  margin: 0 auto;
-  width: 60%;
-  margin-top: 150px;
+.users-favorite {
+  display: inline-block;
 }
