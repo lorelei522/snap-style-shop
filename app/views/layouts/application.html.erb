@@ -46,10 +46,11 @@
 
   				<ul id="nav">
             <% if logged_in? %>
-    					<li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
+              <li><%= link_to "HomePage", root_url  %></li>
+    					<li><%= link_to "Your Profile", user_path(current_user) %></li>
               <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to "Home", root_url  %></li>
+              <li><%= link_to "HomePage", root_url  %></li>
               <li><%= link_to "Create an Account", new_user_path  %></li>
               <li><%= link_to "Log In", new_session_path  %></li>
             <% end %>
@@ -114,12 +115,7 @@
 
   				<ul class="extra-navbar nav navbar-nav navbar-right">
             <% if logged_in? %>
-              <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
-              <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "HomePage", root_url  %></li>
-              <li><%= link_to "Create an Account", new_user_path  %></li>
-              <li><%= link_to "Log In", new_session_path  %></li>
+              <li><%= link_to "Hi #{current_user.username}", user_path(current_user) %></li>
             <% end %>
   				</ul>
 
@@ -127,17 +123,7 @@
 
   		</nav>
   		<!-- /NAVIGATION -->
-      <!-- HERO -->
-      <section id="hero" class="module-hero module-video module-full-height bg-light-30" data-background="assets/images/section-11.jpg">
 
-
-
-        <!-- YOUTUBE VIDEO-->
-        <div class="video-player" data-property="{videoURL:'https://youtu.be/QCHpEucTWgo?t=23s', containment:'.module-video', quality:'large', startAt:23, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:0, mute:true}"></div>
-        <!-- /YOUTUBE VIDEO-->
-
-      </section>
-      <!-- /HERO -->
       <%= yield %>
       <!-- FOOTER -->
 		<footer class="module bg-light">

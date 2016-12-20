@@ -13,10 +13,72 @@
  *= require_self
  */
 
+html, body {
+ display: flex;
+ min-height: 100vh;
+ flex-direction: column;
+}
+
 body {
   font-family: 'Lato', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
   font-family: 'Sree Krushnadevaraya', serif;
+}
+
+.user-profile {
+  position: relative;
+  margin-top: 100px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.center-div {
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 150px;
+}
+
+footer {
+  margin-top: 200px;
+}
+
+footer > .container {
+  height: 15vh;
+
+}
+
+.users-favorite {
+  display: inline-block;
+  width: 50%;
+  margin-top: 150px;
+}
+
+.item {
+  height: 550px;
+  padding: 40px;
+  text-align: center;
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favorite-image a img {
+  height: 300px;
+  width: auto;
+  object-fit: cover;
+}
+
+.favorite-text {
+  /*margin-top: 25px;*/
+}
+
+.unlike-button {
+  /*margin-top: 10px;*/
 }

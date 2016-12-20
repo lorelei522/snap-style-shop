@@ -1,47 +1,68 @@
-<div class="container">
-  <div class="name-container">
-    <h3><%= @user.username %></h3>
-  </div>
-
-  <div class="avatar-container">
-    <%= image_tag(user_avatar) %>
-  </div>
-
-
-
-  <% if logged_in? && current_user %>
-    <%= link_to "Update profile", edit_user_path(@user), method: :get %>
-  <% end %>
-
-  <div class="about-container">
-    <p><%= @user.aboutme %></p>
-  </div>
-
-</div>
-
-  <div class="name-container">
-    <h3>Favorites</h3>
-  </div>
-
-  <div class="users-favorites">
-      <% @user.favorites.each do |favorite| %>
-        <div class="favorite">
-        <ul>
-          <li>
-            <div class="product-image"><%= link_to image_tag(favorite.product[:image]), favorite.product[:link] %></div>
-          </li>
-          <li>
-            <div> <%= favorite.product[:name] %> </div>
-          </li>
-          <li>
-            <div class="product-price"><%= favorite[:price] %></div>
-          </li>
-          <% if logged_in? && current_user.id == @user.id  %>
-          <div class="unlike-button">
-          <%= button_to "Unlike", favorite_path(favorite), method: :delete, :class => 'btn btn-default blue-grey lighten-2'%>
-        </div>
-          <% end %>
-        </ul>
-      <% end %>
+<div class="container user-profile">
+    <div class="span3 well">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"> <%= image_tag(user_avatar, name: "aboutme", width:"140", height:"140", class:"img-circle") %> </a>
+        <h3><%= @user.username %></h3>
+        <p class="text-center"><br>
+            <%= @user.aboutme %> </p>
+        <em>Click image to update profile</em>
+		</center>
     </div>
-  </div>
+    <!-- Modal -->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">About</h4>
+                    </div>
+                <div class="modal-body">
+                    <center>
+                    <%= image_tag(user_avatar, name: "aboutme", width:"140", height:"140", class:"img-circle") %>
+                    <h3 class="media-heading"><%= @user.username %></h3>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-center"><br>
+                        <%= @user.aboutme %> </p>
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                      <% if logged_in? && current_user %>
+                      <button type="button" class="btn btn-default"><%= link_to "Update profile", edit_user_path(@user), method: :get %></button>
+                      <% end %>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hide bio</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- PROBLEM AREA -->
+<div class="container users-favorites">
+  <% unless @user.favorites.empty? %>
+    <h3>Items You've Loved:</h3>
+    <div class="row">
+    <% @user.favorites.each do |favorite| %>
+      <div class="favorite col-xs-12 col-sm-6 col-md-4 col-lg-3 item">
+            <div class="favorite-image"><%= link_to image_tag(favorite.product[:image]), favorite.product[:link] %></div>
+
+            <div class="favorite-text">
+              <div><%= favorite.product[:name] %></div>
+              <div><%= favorite.product[:price] %></div>
+            </div>
+
+            <% if logged_in? && current_user.id == @user.id  %>
+              <div class="unlike-button">
+                <%= button_to "Unlike", favorite_path(favorite), method: :delete, :class => 'btn btn-default'%>
+              </div>
+            <% end %>
+        </div>
+    <% end %>
+    </div>
+  <% else %>
+  <h3>You haven't favorited any items yet!</h3>
+  <% end %>
+</div>

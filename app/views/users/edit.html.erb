@@ -1,11 +1,17 @@
-<p>Update profile
-  <%= form_for @user do |f| %>
-    <%=f.label :image %><br>
-    <%=f.file_field :image %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <%= f.label :aboutme %>
-    <%= f.text_area :aboutme %>
-    <%= f.submit :Update %>
-  <% end %>
-</p>
+<div class="container center-div">
+
+  <h3>Update profile</h3>
+    <%= form_for @user, html: {multipart: true} do |f| %>
+      <%=f.label :image %><br>
+      <%=f.file_field :image %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+
+      <%= f.label :aboutme %>
+      <%= f.text_area :aboutme %>
+
+      <%= f.submit :Update %>
+    <% end %>
+
+</div>
