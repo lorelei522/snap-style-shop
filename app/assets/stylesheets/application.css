@@ -53,4 +53,11 @@ footer > .container {
 
 .users-favorite {
   display: inline-block;
+  width: 50%;
+  margin-top: 150px;
+}
+
+.item {
+  padding: 40px;
+  text-align: center;
 }
