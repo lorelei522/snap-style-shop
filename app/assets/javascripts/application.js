@@ -16,12 +16,12 @@
 //= require_tree .
 
 $(document).ready(function() {
+
   $(".product").on("submit", ".favorite-button", function(event){
     event.preventDefault();
     var thisForm = this
     var url = $(this).children().attr("action")
     var data = $(this).children().children().serialize()
-    debugger;
     $.ajax({
       url: url,
       method: "post",
@@ -35,7 +35,6 @@ $(document).ready(function() {
 
   $(".product").on("submit", ".favorited", function(event){
     event.preventDefault();
-    debugger;
     var thisForm = this
     var id = $(thisForm).children().first().siblings().first().attr("id")
     var url = $(thisForm).attr("action") + "/" + id
