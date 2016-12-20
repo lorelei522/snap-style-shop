@@ -14,9 +14,6 @@ class FavoritesController < ApplicationController
     end
   end
 
-  def show
-    binding.pry
-  end
 
   def destroy
      favorite = Favorite.find(params[:id])

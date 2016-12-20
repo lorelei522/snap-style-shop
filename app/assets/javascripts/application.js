@@ -33,7 +33,6 @@ $(document).ready(function() {
   });
 
   $(".product").on("submit", ".favorited", function(event){
-    debugger;
     event.preventDefault();
     var thisForm = this
     var url = $(thisForm).attr("action") + "/" + $(this).attr("id")
@@ -44,8 +43,6 @@ $(document).ready(function() {
       data: data
     }).done(function(response){
       $(thisForm).find("button").text("Love it?")
-    }).fail(function(response){
-      console.log(response)
     })
   });
 
@@ -58,7 +55,6 @@ $(document).ready(function() {
       method: "delete",
       data: $(thisForm).children().serialize()
     }).done(function(response){
-      debugger;
       $(thisForm).parent().remove()
     })
   });
