@@ -42,7 +42,10 @@ $(document).ready(function() {
       method: "delete",
       data: data
     }).done(function(response){
+      $(thisForm).removeClass("favorited")
       $(thisForm).find("button").text("Love it?")
+    }).fail(function(response){
+      console.log(response)
     })
   });
 
