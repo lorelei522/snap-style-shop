@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :welcome
   resources :favorites
+  resources :items
 
   get 'sessions/new' => 'sessions#new'
   post 'sessions/login_attempt' => 'sessions#login_attempt'
