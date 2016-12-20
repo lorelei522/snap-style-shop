@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     if @user.image_file_name != nil
       return @user.image.url(:thumb)
     else
-      return "/assets/mannequin.jpg"
+      return "/assets/hanger.jpg"
     end
   end
 

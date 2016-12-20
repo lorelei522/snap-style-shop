@@ -20,3 +20,8 @@ body {
 h1, h2, h3, h4, h5, h6, .logo {
   font-family: 'Sree Krushnadevaraya', serif;
 }
+
+.user-profile {
+  position: relative;
+  margin-top: 100px;
+}
