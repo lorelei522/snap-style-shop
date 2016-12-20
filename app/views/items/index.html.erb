@@ -1,0 +1,9 @@
+<% if logged_in? %>
+  <%=  form_for(:items, :url => {:controller => 'items', :action => 'create'}, html: {:method => 'POST'}) do |f| %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.submit :Upload, class:"btn btn-d btn-round" %>
+  <% end %>
+<% else %>
+  <h1>Please log in to search for your next must-have!</h1>
+<% end %>
