@@ -17,19 +17,15 @@
                   <div class="work-descr">
                     <%= p[:price] %>
                   </div>
-                  <div class="favorite-button">
+                  <div class="favorite-buttons">
                     <% if logged_in? %>
-                      <% if product_favorited? %>
-                        <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Loved it!<%end%>
-                      <% else %>
-                        <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
+                        <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}, class: 'favorite-button' ) do |f| %>
                           <%= f.hidden_field :image, :value => p[:image] %>
                           <%= f.hidden_field :link, :value => p[:link] %>
                           <%= f.hidden_field :name, :value => p[:name] %>
                           <%= f.hidden_field :price, :value => p[:price] %>
                           <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Love it?<%end%>
                         <% end %>
-                      <% end %>
                     <% end %>
                   </div>
                 </div>

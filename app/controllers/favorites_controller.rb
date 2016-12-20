@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
 
   def create
     if logged_in?
+      binding.pry
       @product =  Product.find_or_create_by(product_params)
       @favorite = Favorite.new(product_id: @product.id)
       @favorite.user_id = current_user.id

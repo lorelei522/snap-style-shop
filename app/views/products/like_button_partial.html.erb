@@ -1,7 +1,7 @@
-<%=  form_for(@product, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
-  <%= f.hidden_field :image, :value => @product[:image] %>
-  <%= f.hidden_field :link, :value => @product[:link] %>
-  <%= f.hidden_field :name, :value => @product[:name] %>
-  <%= f.hidden_field :price, :value => @product[:price] %>
+<%=  form_for(product, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
+  <%= f.hidden_field :image, :value => product[:image] %>
+  <%= f.hidden_field :link, :value => product[:link] %>
+  <%= f.hidden_field :name, :value => product[:name] %>
+  <%= f.hidden_field :price, :value => product[:price] %>
   <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Love it?<%end%>
 <% end %>
