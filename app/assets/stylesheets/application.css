@@ -19,6 +19,35 @@ html, body {
  flex-direction: column;
 }
 
+form.edit_user {
+  width: 80%;
+  margin: 0 auto;
+}
+
+form.edit_user textarea,
+form.edit_user input {
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+}
+
+form.edit_user label {
+  margin-top: 16px;
+  display: block;
+  font-weight: normal;
+}
+
+
+form.edit_user input[type='submit'] {
+  margin-top: 20px;
+  display: block;
+
+}
+
+#user_aboutme {
+  height: 150px;
+}
+
 #hero{
   max-height: 600px;
 }
@@ -27,7 +56,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, .logo {
+h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h5, .work-caption, .work-title, .work-descr, .logo {
   font-family: 'Sree Krushnadevaraya', serif;
 }
 
@@ -61,28 +94,27 @@ footer > .container {
   margin-top: 150px;
 }
 
-.item {
+.item,
+.work-item {
   height: 550px;
   padding: 40px;
   text-align: center;
 }
 
-.favorite {
+.favorite,
+.product-image {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.favorite-image a img {
-  height: 300px;
+.favorite-image a img,
+a .product-image img {
+  object-fit: contain;
+  height: auto;
   width: auto;
-  object-fit: cover;
 }
 
-.favorite-text {
-  /*margin-top: 25px;*/
-}
-
-.unlike-button {
-  /*margin-top: 10px;*/
+.work-caption .favorite-button {
+  margin-top: 20px;
 }
