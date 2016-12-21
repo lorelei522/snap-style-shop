@@ -23,6 +23,7 @@ form.edit_user {
   width: 80%;
   margin: 0 auto;
 }
+
 form.edit_user textarea,
 form.edit_user input {
   border: 1px solid #ccc;
