@@ -34,12 +34,11 @@ class ApplicationController < ActionController::Base
   end
 
   def search_word
-    clothing_item = params[:products][:image]
-
+    # binding.pry
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
-    content = File.read(clothing_item)
+    content = Paperclip.io_adapters.for(@item.image).read
     image = Google::Apis::VisionV1::Image.new(content: content)
     feature = Google::Apis::VisionV1::Feature.new(type: 'LABEL_DETECTION')
 
@@ -65,12 +64,10 @@ class ApplicationController < ActionController::Base
 
 
   def image_query
-    clothing_item = params[:products][:image]
-
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
-    content = File.read(clothing_item)
+    content = Paperclip.io_adapters.for(@item.image).read
     image = Google::Apis::VisionV1::Image.new(content: content)
     feature = Google::Apis::VisionV1::Feature.new(type: 'IMAGE_PROPERTIES')
 
