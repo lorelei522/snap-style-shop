@@ -38,7 +38,8 @@ $(document).ready(function() {
       $(thisForm).children().attr("id", id)
     })
   });
-  //
+
+  
   $(".product").on("submit", ".favorited", function(event){
     event.preventDefault();
     debugger;
