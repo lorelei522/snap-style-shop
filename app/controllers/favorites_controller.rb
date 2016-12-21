@@ -11,7 +11,6 @@ class FavoritesController < ApplicationController
           id: @favorite.id,
           delete_partial: render_to_string('products/_delete_partial', layout: false, locals: {favorite: @favorite })
         }
-        # render json: {id: @favorite.id}
       end
     else
       redirect_to new_session_path
@@ -25,13 +24,11 @@ class FavoritesController < ApplicationController
      if logged_in? && authorized?(favorite)
       favorite.destroy
       if request.xhr?
-        # binding.pry
         render json: {
           id: favorite.id,
           like_partial: render_to_string('products/like_button_partial', layout: false, locals: { product: @product })
         }
       else
-  #stretch: give non-JS users access to delete
         redirect_to user_path(current_user)
       end
     else
