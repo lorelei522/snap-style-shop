@@ -34,7 +34,6 @@ class ApplicationController < ActionController::Base
   end
 
   def search_word
-    # binding.pry
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
@@ -90,7 +89,7 @@ class ApplicationController < ActionController::Base
 
   def shopstylecall
     limit = 50
-    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{ENV["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&offset=0&limit=#{limit}").read
+    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{ENV["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
       # binding.pry

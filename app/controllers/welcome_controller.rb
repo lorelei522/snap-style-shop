@@ -2,14 +2,14 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def create
-    if logged_in?
-      pp @products = shopstylecall
-      redirect_to product_path(@products)
-    else
-      redirect_to new_session_path
-    end
-  end
+  # def create
+  #   if logged_in?
+  #     pp @products = shopstylecall
+  #     redirect_to product_path(@products)
+  #   else
+  #     redirect_to new_session_path
+  #   end
+  # end
 
   private
     def clothing_array
