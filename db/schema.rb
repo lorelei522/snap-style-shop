@@ -55,4 +55,6 @@ ActiveRecord::Schema.define(version: 20161220221444) do
     t.datetime "image_updated_at"
   end
 
+  add_foreign_key "favorites", "products"
+  add_foreign_key "favorites", "users"
 end

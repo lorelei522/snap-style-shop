@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_avatar
-    if @user.image_file_name != nil
+    unless @user.image_file_name.nil?
       return @user.image.url(:thumb)
     else
       return "/assets/hanger.jpg"

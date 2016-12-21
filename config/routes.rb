@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   root :to => 'welcome#index'
-  resources :products
-  resources :users
-  resources :welcome
-  resources :favorites, except: :update
-  resources :items
+  resources :products, only: :index
+  resources :users, except: :destroy
+  resources :welcome, only: :index
+  resources :favorites, except: [:update, :show]
+  resources :items, only: [:new, :create]
 
-  get 'sessions/new' => 'sessions#new'
+
   post 'sessions/login_attempt' => 'sessions#login_attempt'
   delete 'sessions' => 'sessions#destroy'
 
-  resources :sessions, except: :destroy
+  resources :sessions, except: [:destroy, :update, :edit, :index]
 
 end
