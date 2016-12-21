@@ -5,11 +5,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item =  Item.new(item_params)
 
     if @item.save
-      @item =  shopstylecall
+      @products = shopstylecall
+      redirect_to product_path(@products)
     else
       flash[:notice]= "Picture is invalid"
       render "new"
