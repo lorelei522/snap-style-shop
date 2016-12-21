@@ -1,15 +1,4 @@
-<% if @errors %>
-    <div id="error_explanation">
-      <p>
-        <strong><%= pluralize(@errors.count, "error") %> prohibited you from logging in:</strong>
-      </p>
-      <ul>
-        <% @errors.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+
 
 <div class="container center-div">
 
@@ -22,5 +11,18 @@
         <br></br>
         <%= submit_tag "Log in", class: "btn btn-default" %>
       <% end %>
+
+      <% if @errors %>
+    <div id="error_explanation">
+      <p>
+        <strong><%= pluralize(@errors.count, "error") %> prohibited you from logging in:</strong>
+      </p>
+      <ul>
+        <% @errors.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
 
 </div>
