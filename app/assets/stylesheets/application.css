@@ -75,6 +75,7 @@ form.edit_user input[type='submit'] {
     margin: auto;
     margin-top: 15px;
     margin-bottom: 15px;
+    width: 60%;
 }
 
 body {
