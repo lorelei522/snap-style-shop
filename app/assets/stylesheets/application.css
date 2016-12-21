@@ -19,6 +19,34 @@ html, body {
  flex-direction: column;
 }
 
+form.edit_user {
+  width: 80%;
+  margin: 0 auto;
+}
+form.edit_user textarea,
+form.edit_user input {
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+}
+
+form.edit_user label {
+  margin-top: 16px;
+  display: block;
+  font-weight: normal;
+}
+
+
+input[type='submit'] {
+  margin-top: 20px;
+  display: block;
+
+}
+
+#user_aboutme {
+  height: 150px;
+}
+
 #hero{
   max-height: 600px;
 }
@@ -27,7 +55,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, .logo {
+h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, .logo {
   font-family: 'Sree Krushnadevaraya', serif;
 }
 

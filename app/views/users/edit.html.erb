@@ -1,17 +1,17 @@
 <div class="container center-div">
 
-  <h3>Update profile</h3>
     <%= form_for @user, html: {multipart: true} do |f| %>
-      <%=f.label :image %><br>
-      <%=f.file_field :image %>
+      <h3>Update profile</h3>
+      <%=f.label :image, "Profile Picture" %>
+      <%=f.file_field :image, class: 'btn btn-default' %>
 
       <%= f.label :username %>
       <%= f.text_field :username %>
 
-      <%= f.label :aboutme %>
+      <%= f.label :aboutme, "A little something about you:" %>
       <%= f.text_area :aboutme %>
 
-      <%= f.submit :Update %>
+      <%= f.submit :Update, class: 'btn btn-default' %>
     <% end %>
 
 </div>
