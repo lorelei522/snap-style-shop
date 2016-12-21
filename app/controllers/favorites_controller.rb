@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
 
   def create
-    # binding.pry
     if logged_in?
       @product =  Product.find_or_create_by(product_params)
       @favorite = Favorite.new(product_id: @product.id)
@@ -14,6 +13,8 @@ class FavoritesController < ApplicationController
         }
         # render json: {id: @favorite.id}
       end
+    else
+      redirect_to new_session_path
     end
   end
 

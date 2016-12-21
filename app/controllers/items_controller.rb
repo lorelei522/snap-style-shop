@@ -1,18 +1,26 @@
 class ItemsController < ApplicationController
 
   def new
-    @item = Item.new
+    if logged_in?
+      @item = Item.new
+    else
+      redirect_to new_session_path
+    end
   end
 
   def create
-    @item =  Item.new(item_params)
+    if logged_in?
+      @item =  Item.new(item_params)
 
-    if @item.save
-      redirect_to products_path
+      if @item.save
+        redirect_to products_path
+      else
+        flash[:notice]= "Picture is invalid"
+        render "welcome/index"
+      end
     else
-      flash[:notice]= "Picture is invalid"
-      render "new"
-    end
+      redirect_to new_session_path
+    end 
   end
 
   private
