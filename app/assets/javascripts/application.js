@@ -26,7 +26,6 @@ $(document).ready(function() {
       $(thisForm).children().children().first().siblings().first().remove()
     }
     data = data.split("patch").join("post")
-    debugger;
     $.ajax({
       url: url,
       method: "post",
@@ -41,7 +40,6 @@ $(document).ready(function() {
   });
   //
   $(".product").on("submit", ".favorited", function(event){
-    console.log("in .product submit");
     event.preventDefault();
     debugger;
     var thisForm = this
@@ -49,12 +47,10 @@ $(document).ready(function() {
     var url = "/favorites/" + id
     var data = $(thisForm).children().serialize()
     var fullUrl = url + "?" + data;
-    // debugger;
     $.ajax({
       url: fullUrl,
       method: "delete"
     }).done(function(response){
-      debugger
       $(thisForm).html(response.like_partial)
       $(thisForm).parent().addClass("favorite-button")
       $(thisForm).removeClass("favorited")
