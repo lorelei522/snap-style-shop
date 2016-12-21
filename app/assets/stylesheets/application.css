@@ -52,6 +52,31 @@ form.edit_user input[type='submit'] {
   max-height: 600px;
 }
 
+.search-box {
+  border: 1px #ccc solid;
+  background-color: rgba(255, 255, 255,0.7);
+  padding-top: 25px;
+  margin-top: 200px;
+  color: black;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.search-box form {
+  margin: auto;
+  text-align: center;
+  margin: 10px;
+  line-height: 10px;
+  /*display: block;*/
+}
+
+.search-box input[type="file"] {
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 body {
   font-family: 'Lato', sans-serif;
 }

@@ -1,13 +1,21 @@
 <div class="container center-div">
-  <h1>Register:</h1>
+  <h3>Register:</h3>
   <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, html: { multipart: true}) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username, class: 'form-control'%>
 
-    <p> Username:</br> <%= f.text_field :username, class: 'form-control'%> </p>
-    <p> Email:</br> <%= f.email_field :email, class: 'form-control'%> </p>
-    <p> Tell us about yourself:</br> <%= f.text_area :aboutme, class: 'form-control'%> </p>
-    <p> Password:</br> <%= f.password_field :password, class: 'form-control'%> </p>
-     <%=f.label :image, "Select a profile picture:" %><br>
-     <%=f.file_field :image, class: 'btn btn-default' %></br>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control'%>
+
+    <%= f.label :aboutme, "Tell us about yourself" %>
+    <%= f.text_area :aboutme, class: 'form-control'%>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control'%>
+
+    <%=f.label :image, "Select a profile picture:" %><br>
+    <%=f.file_field :image, class: 'btn btn-default' %></br>
+
     <%= f.submit :Signup, class: "btn btn-default"%>
   <% end %>
 
