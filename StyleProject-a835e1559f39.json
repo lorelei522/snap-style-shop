@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "style-project-153013",
+  "private_key_id": "a835e1559f39d8d8459fbeb568436cc78174ea7e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCxzNr9dO3skDmG\nOFZmuPvI4xnVWC/mQ/KStHfLUG9cQV8fpaNWCB38KwXDEHkgjtfwD8ixXymdXppN\nBkLgSKXqse93fBSPWyjrK+iARbe/TU2+/4j6A3Y+lxggdJQsGgyBmBnWb705a0mi\njsXuXWlq4XQ9TGK6el37z34L2JnPuJzRTnMp+U840YhtkFijOGInWAoGhXtWZ7d6\nkpDXbSXfBsu5siG8yrQ4qOHeDQTaKWTIfAx+N2K4AMznwfgkVLsHSRTlpVT0Gpn5\nwPyMmoNF6h8RH4/rHTkjjlOVWQbn+Z8bVv4qM5d9h/NwOTsws0CLZXgz/yCHAJtX\n97VeQ1YBAgMBAAECggEBAJxcvx31TiQj9iLeusVd2zgg2KAyDPXhPZvdEBkCZNzq\nNKCdR5aqTsxsfYW9n/iNBsR87Q9n1C4se2BPqFKcMSXEVAdtXJtyHPsswyzDo0Oe\n1UeqbKkKkFuc/z/TpldelS8HN3nJDM1JWBmYm+LzzXiMS3B5E75RTQPdx0jdtO7i\nQGInjuOfydiehBny/4fdAaL4+I5KVYVMSn/uJsZVd7pHdnB/O7pv49dpzRaPuUKk\nBaq83gVVOO/fOs96/xb9c+f1j3kaJFa6pnKavr9zscIFx9Qsr9/9ikZRWAe3GZSW\nnqVqGNPqiIexX7/xLDJ4sCcQL9htEuvqzaStSVQeAAECgYEA6aJJh6eBCReCxAPP\n2nVmVqne1ZBJcfuuTV8R7JpXcrR52gR9fdFyfjF/HgF3svEGB/4RLD4LeK0VmCli\nx6OLbJuhC43vplFpMoThYYKoMP0/K6BAGvswFH3XCVk+9xfGyMzAoZzLFy/g9zsN\n7X5r3lvV0dP9xPtxxDjwC7TftQECgYEAwtI9hDhx84VNl2cfOWvfrKQlIRTT2OxZ\nBUdhLpaDh9exgobUsFAxEJCgvCmZe5BS/WxMiRXAdVS3ttti3Dm3TMngh3VmaIub\n+fLYTmeQMqjua/WASIVsvXCHG9u1/gw0pxvdHzUWQX78t8EqGEAeG6pQ7tAOvTFJ\nABFJmJKOoQECgYB3IBBt4rKgeCRs3aS1tvafaa39JrzMKZAOU1NIWMoN6ofW6kMy\nTAEc5w/xtL3bt5ljqeAHtvsSZO6Fz1RWhsUoc5IB2jU/kHMbFzX0CjLIB9iV3ffR\nyhIR4LgsRB0e0DjDWeM+hDvpbrg+VxYa6kMF9b1oZ7cVIUA41O9QiMEoAQKBgDpo\nTYkWYxNfI6QAhpvwe16G15rTY6/lK8spWzlcZpKTV+SKB7nUUOFmesnurtUcr8TK\ncyemHc0PWQS5QSpFI28iFu6Fg+5T7K9C3xaiddi6TMCRGaSkW7VvxxHTDPzdK+vt\nrp1sjP+V0q5EexpKHryskxcFyWVvITOj+yyCw8ABAoGBAI6dP65xVdTMNt+kpByt\n+cOKkQ8NmiOuehj+QZKGLJGZCsxhzEREDoaBwqYT1l1tqLWJZrVKgme7AF+/yunu\n8SLP2flRCTPWQofAuO3lafnUzxOYipIfsSC+Qu876tJ+43YDJwElEtK9+vr8dpEI\nzvHGjViPXTKuWLPPVDceufIZ\n-----END PRIVATE KEY-----\n",
+  "client_email": "snapstyleshop@style-project-153013.iam.gserviceaccount.com",
+  "client_id": "112576742746602593483",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/snapstyleshop%40style-project-153013.iam.gserviceaccount.com"
+}
