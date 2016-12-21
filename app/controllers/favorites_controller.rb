@@ -1,13 +1,17 @@
 class FavoritesController < ApplicationController
 
   def create
+    # binding.pry
     if logged_in?
       @product =  Product.find_or_create_by(product_params)
       @favorite = Favorite.new(product_id: @product.id)
       @favorite.user_id = current_user.id
       @favorite.save
       if request.xhr?
-        render 'products/_delete_partial', layout: false
+        render json: {
+          id: @favorite.id,
+          delete_partial: render_to_string('products/_delete_partial', layout: false, locals: {favorite: @favorite })
+        }
         # render json: {id: @favorite.id}
       end
     end
@@ -20,7 +24,11 @@ class FavoritesController < ApplicationController
      if logged_in? && authorized?(favorite)
       favorite.destroy
       if request.xhr?
-        render json: {status: "status 200"}
+        # binding.pry
+        render json: {
+          id: favorite.id,
+          like_partial: render_to_string('products/like_button_partial', layout: false, locals: { product: @product })
+        }
       else
   #stretch: give non-JS users access to delete
         redirect_to user_path(current_user)
@@ -30,9 +38,10 @@ class FavoritesController < ApplicationController
    end
   end
 
+
 private
 
   def product_params
-    params.require(:p).permit(:image, :link, :name, :price)
+    params.require(:product).permit(:image, :link, :name, :price)
   end
 end

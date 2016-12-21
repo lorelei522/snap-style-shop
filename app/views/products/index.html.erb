@@ -6,30 +6,26 @@
       <div id="works-grid" class="works-grid works-hover-w">
         <!-- DO NOT DELETE THIS DIV -->
         <div class="grid-sizer"></div>
-        <% @products.each do |p| %>
+        <% @products.each do |product| %>
         <!-- PORTFOLIO ITEM -->
           <div class="product">
             <div class="work-item tall design">
-              <a href="<%=p[:link]%>">
-                <img src="<%=p[:image]%>" alt="Search Result">
+              <a href="<%=product[:link]%>">
+                <img src="<%=product[:image]%>" alt="Search Result">
                 <div class="work-caption font-alt">
-                  <h3 class="work-title"><%= p[:name] %></h3>
+                  <h3 class="work-title"><%= product[:name] %></h3>
                   <div class="work-descr">
-                    <%= p[:price] %>
+                    <%= product[:price] %>
                   </div>
                   <div class="favorite-button">
                     <% if logged_in? %>
-                      <% if product_favorited? %>
-                        <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Loved it!<%end%>
-                      <% else %>
-                        <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
-                          <%= f.hidden_field :image, :value => p[:image] %>
-                          <%= f.hidden_field :link, :value => p[:link] %>
-                          <%= f.hidden_field :name, :value => p[:name] %>
-                          <%= f.hidden_field :price, :value => p[:price] %>
+                        <%=  form_for(:product, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
+                          <%= f.hidden_field :image, :value => product[:image] %>
+                          <%= f.hidden_field :link, :value => product[:link] %>
+                          <%= f.hidden_field :name, :value => product[:name] %>
+                          <%= f.hidden_field :price, :value => product[:price] %>
                           <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Love it?<%end%>
                         <% end %>
-                      <% end %>
                     <% end %>
                   </div>
                 </div>
