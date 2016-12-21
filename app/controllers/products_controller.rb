@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
   #because of how the json string comes back use ["products"] to get the actual products
 
   def index
-    @products = shopstylecall
+    if logged_in?
+      @products = shopstylecall
+    else
+      redirect_to new_session_path
+    end 
   end
 end
