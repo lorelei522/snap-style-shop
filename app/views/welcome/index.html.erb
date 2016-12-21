@@ -6,20 +6,20 @@
   <!-- YOUTUBE VIDEO-->
   <div class="video-player" data-property="{videoURL:'https://youtu.be/QCHpEucTWgo?t=23s', containment:'.module-video', quality:'large', startAt:23, stopAt: 132, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:0, mute:true}"></div>
   <!-- /YOUTUBE VIDEO-->
+  <div class="container center-div">
+    <% if logged_in? %>
+    <%=  form_for(:items, :url => {:controller => 'items', :action => 'create'}, html: {:method => 'POST'}) do |f| %>
+    <%= f.label :image, "What are you looking for today?" %>
+    <%= f.file_field :image %>
+    <%= f.submit :Upload, class:"btn btn-default" %>
+    <% end %>
+    <% else %>
+    <h1>Please log in to search for your next must-have!</h1>
+    <% end %>
+  </div>
 
 </section>
 <!-- /HERO -->
-<div class="container center-div">
-    <% if logged_in? %>
-    <%=  form_for(:items, :url => {:controller => 'items', :action => 'create'}, html: {:method => 'POST'}) do |f| %>
-      <%= f.label :image, "What are you looking for today?" %>
-      <%= f.file_field :image %>
-      <%= f.submit :Upload, class:"btn btn-default" %>
-    <% end %>
-  <% else %>
-    <h1>Please log in to search for your next must-have!</h1>
-  <% end %>
-</div>
 
 <!-- SERVICES -->
 <div class="container">
