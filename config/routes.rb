@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   resources :products
   resources :users
   resources :welcome
-  resources :favorites, except: :update
+  resources :favorites, except: [:update, :show]
   resources :items
 
-  get 'sessions/new' => 'sessions#new'
+
   post 'sessions/login_attempt' => 'sessions#login_attempt'
   delete 'sessions' => 'sessions#destroy'
 
