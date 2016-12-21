@@ -60,7 +60,6 @@ $(document).ready(function() {
       $(thisForm).html(response.like_partial)
       $(thisForm.parent().addClass("favorite-button")
       $(thisForm).removeClass("favorited")
-
     })
   });
 

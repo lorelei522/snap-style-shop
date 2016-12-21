@@ -17,9 +17,9 @@
                   <div class="work-descr">
                     <%= p[:price] %>
                   </div>
-                  <div class="favorite-buttons">
+                  <div class="favorite-button">
                     <% if logged_in? %>
-                        <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}, class: 'favorite-button' ) do |f| %>
+                        <%=  form_for(:p, :url => {:controller => 'favorites', :action => 'create'}) do |f| %>
                           <%= f.hidden_field :image, :value => p[:image] %>
                           <%= f.hidden_field :link, :value => p[:link] %>
                           <%= f.hidden_field :name, :value => p[:name] %>
