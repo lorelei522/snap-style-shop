@@ -12,7 +12,7 @@
 <div class="container center-div">
     <% if logged_in? %>
     <%=  form_for(:items, :url => {:controller => 'items', :action => 'create'}, html: {:method => 'POST'}) do |f| %>
-      <%= f.label :image %>
+      <%= f.label :image, "What are you looking for today?" %>
       <%= f.file_field :image %>
       <%= f.submit :Upload, class:"btn btn-default" %>
     <% end %>

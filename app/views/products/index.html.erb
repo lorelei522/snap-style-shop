@@ -9,9 +9,11 @@
         <% @products.each do |product| %>
         <!-- PORTFOLIO ITEM -->
           <div class="product">
-            <div class="work-item tall design">
+            <div class="work-item col-xs-12 col-sm-6 col-md-4 col-lg-3">
               <a href="<%=product[:link]%>">
-                <img src="<%=product[:image]%>" alt="Search Result">
+                <div class="product-image">
+                  <img src="<%=product[:image]%>" alt="Search Result">
+                </div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title"><%= product[:name] %></h3>
                   <div class="work-descr">
