@@ -34,12 +34,10 @@ class ApplicationController < ActionController::Base
   end
 
   def search_word
-    clothing_item = params[:products][:image]
-
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
-    content = File.read(clothing_item)
+    content = Paperclip.io_adapters.for(Item.last.image).read
     image = Google::Apis::VisionV1::Image.new(content: content)
     feature = Google::Apis::VisionV1::Feature.new(type: 'LABEL_DETECTION')
 
@@ -65,12 +63,10 @@ class ApplicationController < ActionController::Base
 
 
   def image_query
-    clothing_item = params[:products][:image]
-
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
-    content = File.read(clothing_item)
+    content = Paperclip.io_adapters.for(Item.last.image).read
     image = Google::Apis::VisionV1::Image.new(content: content)
     feature = Google::Apis::VisionV1::Feature.new(type: 'IMAGE_PROPERTIES')
 
@@ -93,7 +89,7 @@ class ApplicationController < ActionController::Base
 
   def shopstylecall
     limit = 50
-    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{ENV["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&offset=0&limit=#{limit}").read
+    shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{ENV["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
     shopstyle_response.map! do |product|
       # binding.pry
