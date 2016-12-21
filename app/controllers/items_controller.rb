@@ -8,8 +8,7 @@ class ItemsController < ApplicationController
     @item =  Item.new(item_params)
 
     if @item.save
-      @products = shopstylecall
-      redirect_to product_path(@products)
+      redirect_to products_path
     else
       flash[:notice]= "Picture is invalid"
       render "new"

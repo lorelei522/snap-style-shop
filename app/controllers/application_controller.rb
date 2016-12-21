@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
-    content = Paperclip.io_adapters.for(@item.image).read
+    content = Paperclip.io_adapters.for(Item.last.image).read
     image = Google::Apis::VisionV1::Image.new(content: content)
     feature = Google::Apis::VisionV1::Feature.new(type: 'LABEL_DETECTION')
 
@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
     service = Google::Apis::VisionV1::VisionService.new
     service.authorization = \
         Google::Auth.get_application_default(['https://www.googleapis.com/auth/cloud-platform'])
-    content = Paperclip.io_adapters.for(@item.image).read
+    content = Paperclip.io_adapters.for(Item.last.image).read
     image = Google::Apis::VisionV1::Image.new(content: content)
     feature = Google::Apis::VisionV1::Feature.new(type: 'IMAGE_PROPERTIES')
 
