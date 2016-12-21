@@ -5,6 +5,10 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
+# make sure these files are actually not being tracked by git,
+# since you may have added items to this file after
+# git already started tracking them
+
 /.bundle
 
 # Ignore all logfiles and tempfiles.

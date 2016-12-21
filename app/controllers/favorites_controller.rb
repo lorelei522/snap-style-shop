@@ -7,6 +7,9 @@ class FavoritesController < ApplicationController
       @favorite = Favorite.new(product_id: @product.id)
       @favorite.user_id = current_user.id
       @favorite.save
+      # there's a "rails" way to tell this controller action:
+      # if the request is expection json, send this, and
+      # if the request is expecting html, send this, etc.
       if request.xhr?
         render json: {
           id: @favorite.id,
@@ -18,7 +21,9 @@ class FavoritesController < ApplicationController
   end
 
 
-  def destroy
+
+ def destroy
+  # proper error status codes for http response
      favorite = Favorite.find(params[:id])
      @product = favorite.product
      if logged_in? && authorized?(favorite)

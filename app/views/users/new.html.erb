@@ -1,4 +1,6 @@
 <div class="container center-div">
+<!-- remove <br> tags and accomplish same effect
+with CSS -->
   <h1>Register:</h1>
   <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, html: { multipart: true}) do |f| %>
 

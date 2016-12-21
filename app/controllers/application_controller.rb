@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   end
 
   def user_avatar
-    if @user.image_file_name != nil
+    # unless @user.image_file_name.nil?
+    @user.image_file_name != nil
       return @user.image.url(:thumb)
     else
       return "/assets/hanger.jpg"
@@ -34,6 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def search_word
+    # extract into smaller methods, make easier to follow/read
     clothing_item = params[:products][:image]
 
     service = Google::Apis::VisionV1::VisionService.new
@@ -65,6 +67,7 @@ class ApplicationController < ActionController::Base
 
 
   def image_query
+    # lets try for maximum of four lines per method
     clothing_item = params[:products][:image]
 
     service = Google::Apis::VisionV1::VisionService.new
@@ -123,6 +126,7 @@ class ApplicationController < ActionController::Base
 
 
   def name(color, rgb)
+    # how can we DRY this out? separate file?
     names = [
     ["000000", "Black"],
     ["000080", "Navy"],

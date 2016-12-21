@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # http status code for failed login, what is it?
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id

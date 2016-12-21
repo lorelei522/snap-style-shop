@@ -169,7 +169,9 @@
 
       <!-- Javascript files -->
       <%= javascript_include_tag 'application' %>
-
+      <!-- this is a lot of HTTP calls, would be much
+      faster loading time if these files were all compiled
+      into one http request -->
       <script src="/assets/bootstrap.min.js"></script>
       <script src="/assets/jquery.superslides.min.js"></script>
       <script src="/assets/jquery.mb.YTPlayer.min.js"></script>

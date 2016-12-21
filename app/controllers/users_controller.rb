@@ -8,7 +8,7 @@ class UsersController < ApplicationController
  end
 
  def new
-   @user =User.new
+   @user = User.new
  end
 
  def create
@@ -30,6 +30,7 @@ def edit
 end
 
 def update
+  # protect this route
   @user = User.find(params[:id])
   @user.update_attribute(:image, params[:user][:image])
   if @user.update(user_params)
