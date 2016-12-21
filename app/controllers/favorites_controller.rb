@@ -1,13 +1,17 @@
 class FavoritesController < ApplicationController
 
   def create
+    # binding.pry
     if logged_in?
       @product =  Product.find_or_create_by(product_params)
       @favorite = Favorite.new(product_id: @product.id)
       @favorite.user_id = current_user.id
       @favorite.save
       if request.xhr?
-        render 'products/_delete_partial', layout: false
+        render json: {
+          id: @favorite.id,
+          delete_partial: render_to_string('products/_delete_partial', layout: false, locals: {favorite: @favorite })
+        }
         # render json: {id: @favorite.id}
       end
     end
@@ -38,6 +42,6 @@ class FavoritesController < ApplicationController
 private
 
   def product_params
-    params.require(:p).permit(:image, :link, :name, :price)
+    params.require(:product).permit(:image, :link, :name, :price)
   end
 end

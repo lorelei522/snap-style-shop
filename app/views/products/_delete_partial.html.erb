@@ -1,1 +1,3 @@
-<%= button_to "Loved it!", favorite_path(@favorite), method: :delete, :class => 'btn btn-default blue-grey lighten-2', :id => "#{@favorite.id}"%>
+<%=  form_for(:favorite, :url => {:controller => 'favorites', :method => 'delete' , :id => favorite.id }) do |f| %>
+  <%= button_tag( :class => 'btn btn-default blue-grey lighten-2') do %>Loved it!<%end%>
+<% end %>
