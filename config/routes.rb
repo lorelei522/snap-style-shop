@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   post 'sessions/login_attempt' => 'sessions#login_attempt'
   delete 'sessions' => 'sessions#destroy'
 
-  resources :sessions, except: [:destroy, :update, :edit, :index]
+  resources :sessions, only: [:new, :create]
 
 end
