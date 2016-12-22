@@ -147,7 +147,8 @@
 
 					<div class="col-sm-12">
 
-						<p class="copyright text-center m-b-0">© 2016 <a href="/">Snap+Style+Shop</a>, All Rights Reserved.</p>
+            <p class="copyright text-center m-b-0">© 2016 <%= link_to("Snap+Style+Shop", root_url) %>, All Rights Reserved.</p>
+            <p class="text-center m-b-0"> Disclaimer: Video is from <%= link_to("Pretty Upfront", "https://www.youtube.com/channel/UCWI4-_JwFK4H1HL8zmtjEBg") %> featuring <%= link_to("Susie Bubble", "http://stylebubble.co.uk/") %></p>
 
 					</div>
 
@@ -167,7 +168,6 @@
 
       <!-- Javascript files -->
       <%= javascript_include_tag 'application' %>
-
       <script src="/assets/bootstrap.min.js"></script>
       <script src="/assets/jquery.superslides.min.js"></script>
       <script src="/assets/jquery.mb.YTPlayer.min.js"></script>
@@ -187,5 +187,6 @@
 
       <script src="/assets/contact.js"></script>
       <script src="/assets/custom.js"></script>
+      <script src="/assets/favorites.js"></script>
     </body>
 </html>
