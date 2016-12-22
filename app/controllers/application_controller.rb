@@ -23,10 +23,12 @@ class ApplicationController < ActionController::Base
     resource.user == current_user
   end
 
-  #put back "dress" #put in there for a test!!!!! -Lori
+  #testing 12/22-Lorelei- DO I need dress in there?
+  #put in: cowboy hat, dress, sneakers, heels
+  #took out: footwear, shoe, sleeve
   def clothing_array
-    ["suit", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch", "sleeve", "shoulder bag", "footwear", "shoe", "running shoe", "athletic shoe",
-    "outerwear", "long sleeve t-shirt", "watch", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
+    ["suit", "dress", "sneakers", "heels", "cowboy hat", "formal wear", "tuxedo", "sweater", "blouse", "t-shirt", "cardigan", "jeans", "trousers", "plaid", "dress shirt",  "wedding dress", "gown", "hood", "watch",
+     "shoulder bag", "running shoe", "athletic shoe","outerwear", "long sleeve t-shirt", "watch", "little black dress", "day dress", "bag", "handbag", "sunglasses", "eyewear", "glasses", "fedora", "costume hat"]
   end
 
   def find_final_response(description_array, clothing_array)
@@ -58,7 +60,8 @@ class ApplicationController < ActionController::Base
       description_array << response[:description]
     end
 
-    find_final_response(description_array, clothing_array)
+    pp response_description_array
+    pp find_final_response(description_array, clothing_array)
   end
 
 
@@ -88,6 +91,9 @@ class ApplicationController < ActionController::Base
   end
 
   def shopstylecall
+    pp search_word
+    pp image_query
+
     limit = 50
     shopstyle_response_api = open("http://api.shopstyle.com/api/v2/products?pid=#{ENV["SHOPSTYLE_TOKEN"]}&fts=#{image_query}+#{search_word}&fl=p10&fl=p11&fl=p12&fl=p9&limit=#{limit}").read
     shopstyle_response = JSON.parse(shopstyle_response_api)["products"]
