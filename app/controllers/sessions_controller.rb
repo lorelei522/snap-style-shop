@@ -3,8 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+    # binding.pry
+    user = User.find_by_email(params[:session][:email])
+    if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome to Personal Shopper, #{user.username}!"
       redirect_to users_path

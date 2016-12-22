@@ -1,18 +1,17 @@
 
-
 <div class="container center-div">
+  <h3>Log In:</h3>
+  <%= form_for(:session, url: :sessions, html: { multipart: true}) do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control'%>
 
-      <%= form_tag(:action =>'create', class: 'form-control') do  %>
-        <h3>Log in</h3>
-        <%= label(:user, :email) %>
-        <%= text_field_tag :email %>
-        <%= label(:user, :password) %>
-        <%= password_field_tag :password %>
-        <br></br>
-        <%= submit_tag "Log in", class: "btn btn-default" %>
-      <% end %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control'%>
 
-      <% if @errors %>
+    <%= f.submit :Signin, class: "btn btn-default"%>
+  <% end %>
+
+  <% if @errors %>
     <div id="error_explanation">
       <p>
         <strong><%= pluralize(@errors.count, "error") %> prohibited you from logging in:</strong>
@@ -23,6 +22,5 @@
         <% end %>
       </ul>
     </div>
-<% end %>
-
+  <% end %>
 </div>

@@ -40,7 +40,7 @@ form.edit_user label {
 
 form.edit_user input[type='submit'] {
   margin-top: 20px;
-  display: block;
+  display: inline-block;
 
 }
 
@@ -50,6 +50,10 @@ form.edit_user input[type='submit'] {
 
 #hero{
   max-height: 600px;
+}
+
+form.login {
+  display: block;
 }
 
 .search-box {
