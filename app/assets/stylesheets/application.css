@@ -54,6 +54,7 @@ form.edit_user input[type='submit'] {
 
 form.login {
   display: block;
+  width: 60%;
 }
 
 .search-box {
