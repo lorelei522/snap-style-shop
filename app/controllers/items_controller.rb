@@ -14,13 +14,13 @@ class ItemsController < ApplicationController
 
       if @item.save
         redirect_to products_path
-      else
+      else 
         flash[:notice]= "Picture is invalid"
         render "welcome/index"
       end
     else
       redirect_to new_session_path
-    end 
+    end
   end
 
   private
