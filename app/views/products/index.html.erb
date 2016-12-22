@@ -1,3 +1,26 @@
+<!-- HERO -->
+<section id="hero" class="module-hero module-parallax module-full-height bg-light-30" data-background="/assets/starting_image.png">
+
+ <div class="container center-div">
+   <div class="row">
+     <div class="search-box col-sm-6 col-sm-offset-3">
+
+         <% if logged_in? %>
+           <%= form_for(:items, :url => {:controller => 'items', :action => 'create'}, html: {:method => 'POST'}) do |f| %>
+           <%= f.label :image, "What are you looking for today?" %>
+           <%= f.file_field :image, class: 'btn btn-default' %>
+           <%= f.submit :Upload, class:"btn btn-default" %>
+           <% end %>
+         <% else %>
+           <p class="module-title">Please register or log in to search for your next must-have.</p>
+         <% end %>
+
+     </div>
+   </div>
+ </div>
+
+</section>
+
 <!-- PORTFOLIO -->
 <% if @products.length > 0 %>
   <section id="portfolio" class="module">

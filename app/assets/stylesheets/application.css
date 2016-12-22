@@ -49,6 +49,7 @@ form.edit_user input[type='submit'] {
 }
 
 #hero{
+  margin-top: -150px;
   max-height: 600px;
 }
 
