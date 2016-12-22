@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+
+html, body {
+ display: flex;
+ min-height: 100vh;
+ flex-direction: column;
+}
+
+form.edit_user {
+  width: 80%;
+  margin: 0 auto;
+}
+
+form.edit_user textarea,
+form.edit_user input {
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+}
+
+form.edit_user label {
+  margin-top: 16px;
+  display: block;
+  font-weight: normal;
+}
+
+
+form.edit_user input[type='submit'] {
+  margin-top: 20px;
+  display: block;
+
+}
+
+#user_aboutme {
+  height: 150px;
+}
+
+#hero{
+  max-height: 600px;
+}
+
+.search-box {
+  border: 1px #ccc solid;
+  background-color: rgba(255, 255, 255,0.7);
+  padding-top: 25px;
+  margin-top: 200px;
+  color: black;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.search-box form {
+  margin: auto;
+  text-align: center;
+  margin: 10px;
+  line-height: 10px;
+  /*display: block;*/
+}
+
+.search-box input[type="file"] {
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 60%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h5, .work-caption, .work-title, .work-descr, .logo {
+  font-family: 'Sree Krushnadevaraya', serif;
+}
+
+.user-profile {
+  position: relative;
+  margin-top: 100px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.center-div {
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 150px;
+}
+
+footer {
+  margin-top: 200px;
+}
+
+footer > .container {
+  height: 15vh;
+
+}
+
+.users-favorite {
+  display: inline-block;
+  width: 50%;
+  margin-top: 150px;
+}
+
+.item,
+.work-item {
+  height: 550px;
+  padding: 40px;
+  text-align: center;
+}
+
+.favorite,
+.product-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favorite-image a img,
+a .product-image img {
+  object-fit: contain;
+  height: auto;
+  width: auto;
+}
+
+.work-caption .favorite-button {
+  margin-top: 20px;
+}
