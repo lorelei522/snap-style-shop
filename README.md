@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* [How-to-Use](#How-to-Use)
+* [How to Use](#How-to-Use)
 
 * [Technologies](#technologies)
 
