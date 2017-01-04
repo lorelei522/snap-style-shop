@@ -1,27 +1,16 @@
-# README
+# Snap+Style+Shop
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* [How-to-Use](#How-to-Use)
 
-* System dependencies
+* [Technologies](#technologies)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+How to Use
+------------
 
 ## An app by:
 
