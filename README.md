@@ -5,11 +5,11 @@ application up and running.
 
 Things you may want to cover:
 
-* [How to Use](#How-to-Use)
+* [Directions](#Directions)
 
 * [Technologies](#technologies)
 
-How to Use
+Directions
 ------------
 
 ## An app by:
