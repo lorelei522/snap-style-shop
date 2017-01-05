@@ -1,27 +1,20 @@
-# README
+# [Snap+Style+Shop](http://snapstyleshop.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Directions
+------------
+1. Snap a photo of your favorite clothing item 
+2. Create an account or Login to your account
+3. Choose an image of a clothing item to search by
+4. Favorite any results to return to them later
+5. If you find something you can click on item and be redirected to where you can purchase it
 
-Things you may want to cover:
 
-* Ruby version
+Technologies
+-------------
+* [Paperclip](https://github.com/thoughtbot/paperclip)
+* [Shopstyle API](https://www.shopstylecollective.com/api/overview)
+* [Google Vision API](https://cloud.google.com/vision/)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 ## An app by:
 
